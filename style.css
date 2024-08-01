@@ -673,3 +673,8 @@ iconify-icon.quote {
   background-color: transparent;
   box-shadow: none;
 }
+
+/* Logo */
+.logo{
+  width: 70px;
+}
