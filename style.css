@@ -459,7 +459,11 @@ svg.primary-color-500 {
 
 /* 4.1 Header
 /*----------------------------------------------*/
-
+@media (max-width: 768px) {
+  .header-top {
+      display: none;
+  }
+}
 a.nav-link {
   text-transform: uppercase;
   color: var(--light-black-color);
