@@ -102,6 +102,20 @@ html {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 body {
   font-family: var(--body-font);
   font-size: 16px;
