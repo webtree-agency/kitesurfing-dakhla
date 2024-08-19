@@ -730,6 +730,9 @@ iconify-icon.quote {
   display: block;
   margin: 0 auto; 
 }
+.footer-background {
+  background-color: var(--bs-gray-100);
+}
 
 /* Layout-Anpassungen für mobile Geräte */
 @media (max-width: 767.98px) {
