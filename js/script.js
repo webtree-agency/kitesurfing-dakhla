@@ -92,29 +92,29 @@
 
 
     window.addEventListener("load", (event) => {
-      // Initialize Isotope and apply the initial filter for "Kitesurf Lessons"
       var $container = $('.isotope-container').isotope({
-        // options
         itemSelector: '.item',
-        filter: '.kitesurf-lessons'  // Show only "Kitesurf Lessons" initially
+        filter: '.kitesurf-lessons'  
       });
-    
-      // Handle button click events
+
       $('.filter-button').click(function () {
         var filterValue = $(this).attr('data-filter');
-    
-        // Change active button state
+
         $('.filter-button').removeClass('active');
         $(this).addClass('active');
-    
-        // Apply the filter to show only the selected items
+
         $container.isotope({ filter: filterValue });
+
+        $('.detail-view').removeClass('active');
+
+        if (filterValue !== '*') {
+          $(filterValue).addClass('active');
+        }
       });
+
+      $('.filter-button.active').click();
     });
-    
 
-
-
-    }); // End of a document
+}); // End of a document
 
 })(jQuery);

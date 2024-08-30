@@ -832,3 +832,10 @@ iconify-icon.quote {
     opacity: 0.8;
   }
 }
+.detail-view {
+  display: none;
+}
+
+.detail-view.active {
+  display: block !important; 
+}
