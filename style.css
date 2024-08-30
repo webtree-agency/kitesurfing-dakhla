@@ -832,10 +832,39 @@ iconify-icon.quote {
     opacity: 0.8;
   }
 }
+/* Services */
 .detail-view {
   display: none;
 }
 
 .detail-view.active {
   display: block !important; 
+}
+
+.checkmarks .checkmark {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkmarks i {
+  font-size: 24px;
+  color: var(--primary-color); /* Change to match your primary color */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+.checkmarks span {
+  font-size: 16px;
+  color: #333; /* Adjust color as needed */
+}
+
+@media (max-width: 767.98px) {
+  .checkmarks .d-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .checkmarks .checkmark {
+    margin-bottom: 15px; /* Adjust spacing for mobile */
+  }
 }
