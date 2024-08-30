@@ -764,19 +764,71 @@ iconify-icon.quote {
   }
 }
 /* Gallery */
-/* Standard-Einstellung: keine Effekte auf mobilen Geräten und Tablets */
 .hover-effect {
   transition: all 0.2s ease-in-out;
 }
-
-/* Effekte nur für größere Bildschirme (ab 992px, also Laptop-Größen) */
 @media (min-width: 992px) {
   .hover-effect {
     filter: grayscale(100%);
   }
-
   .hover-effect:hover {
     filter: grayscale(0);
     transform: scale(1.1);
+  }
+}
+
+/* Carousel Styling */
+.carousel-item {
+  position: relative;
+  height: 450px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+/* Bilder im Carousel */
+.carousel-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+/* Abrunden der Bilder auf mobilen Geräten */
+@media (max-width: 991px) {
+  .carousel-item img {
+    border-radius: 15px;
+  }
+  .carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .carousel-indicators button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    opacity: 0.5;
+  }
+  .carousel-indicators .active {
+    background-color: var(--primary-color);
+    opacity: 1;
+  }
+  .carousel-indicators button:hover {
+    background-color: var(--primary-color);
+    opacity: 0.8;
   }
 }
