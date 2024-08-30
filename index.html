@@ -36,7 +36,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Outfit:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"></head>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
 <body>
-
+  <div id="preloader">
+  <l-line-wobble
+      size="85"
+      stroke="5"
+      bg-opacity="0.1"
+      speed="1.75"
+      color="var(--primary-color)" 
+    ></l-line-wobble>
+ </div>
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol xmlns="http://www.w3.org/2000/svg" id="send" viewBox="0 0 24 24">
       <g fill="none">
@@ -850,6 +858,7 @@
 
   <script src="js/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/lineWobble.js"></script>
   <script type="text/javascript" src="js/plugins.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
