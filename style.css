@@ -130,6 +130,10 @@ p {
   color: var(--dark-color);
 }
 
+.text-orange {
+  color: var(--primary-color);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -734,12 +738,6 @@ iconify-icon.quote {
   background-color: var(--bs-gray-100);
 }
 
-@media (max-width: 767.98px) {
-  .footer-logo {
-    max-width: 200px;
-  }
-}
-
 .orange-dot {
   position: relative;
   display: inline-block;
@@ -760,5 +758,8 @@ iconify-icon.quote {
 @media (max-width: 767px) {
   .orange-dot::after {
     bottom: -5px;
+  }
+  .footer-logo {
+    max-width: 200px;
   }
 }
