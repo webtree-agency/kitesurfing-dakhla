@@ -122,9 +122,7 @@
       setTimeout(() => {
         document.body.classList.add('loaded');
       }, 300);
-    });
-    
-
+    });    
 }); // End of a document
 
 })(jQuery);
