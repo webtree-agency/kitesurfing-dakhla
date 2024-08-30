@@ -717,7 +717,7 @@ iconify-icon.quote {
 
 .parallax-content {
   position: relative;
-  z-index: 1; /* Sicherstellen, dass der Text über dem Hintergrund liegt */
+  z-index: 1; 
 }
 
 .parallax-section h2 {
@@ -729,8 +729,8 @@ iconify-icon.quote {
 /* Allgemeine Fußzeile Styles */
 
 .footer-logo {
-  max-width: 200px; /* Maximale Breite für das Logo */
-  height: auto; /* Höhe automatisch anpassen, um die Proportionen beizubehalten */
+  max-width: 200px; 
+  height: auto; 
   display: block;
   margin: 0 auto; 
 }
@@ -761,5 +761,22 @@ iconify-icon.quote {
   }
   .footer-logo {
     max-width: 200px;
+  }
+}
+/* Gallery */
+/* Standard-Einstellung: keine Effekte auf mobilen Geräten und Tablets */
+.hover-effect {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Effekte nur für größere Bildschirme (ab 992px, also Laptop-Größen) */
+@media (min-width: 992px) {
+  .hover-effect {
+    filter: grayscale(100%);
+  }
+
+  .hover-effect:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
   }
 }
