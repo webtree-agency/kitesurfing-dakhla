@@ -845,6 +845,8 @@ iconify-icon.quote {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  min-width: 0; /* Allow shrinking */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .checkmarks i {
@@ -853,18 +855,17 @@ iconify-icon.quote {
   margin-right: 10px; /* Space between icon and text */
 }
 
-.checkmarks span {
-  font-size: 16px;
-  color: #333; /* Adjust color as needed */
-}
-
 @media (max-width: 767.98px) {
-  .checkmarks .d-flex {
+  .checkmarks .row {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .checkmarks .checkmark {
+  .checkmarks .col-4 {
     margin-bottom: 15px; /* Adjust spacing for mobile */
+  }
+
+  .checks-bottom {
+    margin-top: 0 !important;
   }
 }
