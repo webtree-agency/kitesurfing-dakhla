@@ -734,29 +734,31 @@ iconify-icon.quote {
   background-color: var(--bs-gray-100);
 }
 
-/* Layout-Anpassungen für mobile Geräte */
 @media (max-width: 767.98px) {
   .footer-logo {
-    max-width: 200px; /* Größeres Logo auf mobilen Geräten */
+    max-width: 200px;
   }
 }
 
-/* Dot behind title */
-.title-with-dot {
-  position: relative; /* Erforderlich für die Platzierung des Pseudo-Elements */
-  display: inline-block; /* Stellt sicher, dass der Punkt relativ zum Text positioniert wird */
+.orange-dot {
+  position: relative;
+  display: inline-block;
 }
 
-.title-with-dot::after {
-  content: ''; /* Kein Textinhalt, nur der Punkt als Hintergrund */
+.orange-dot::after {
+  content: '';
   position: absolute;
-  right: -10px; /* Positioniere den Punkt leicht außerhalb des Textes */
-  bottom: -2px; /* Positioniere den Punkt am unteren Ende des Textes */
-  width: 28px; /* Größe des Punkts */
-  height: 28px; /* Größe des Punkts */
-  background-color: var(--primary-color); /* Farbe des Punkts */
-  border-radius: 50%; /* Macht den Punkt rund */
+  right: -10px;
+  bottom: 5px;
+  width: 28px;
+  height: 28px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
   z-index: -1;
 }
-/* Services */
 
+@media (max-width: 767px) {
+  .orange-dot::after {
+    bottom: -5px;
+  }
+}
