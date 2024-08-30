@@ -887,80 +887,14 @@ body.loaded #preloader {
   display: none;
 }
 
-/* Custom Button */
-.button-48 {
-  appearance: none;
-  background-color: var(--primary-color); /* Matches the primary color of your old button */
-  border-radius: 30px; 
-  box-sizing: border-box;
-  color: #fff; /* Sets text color to white */
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: 0;
-  line-height: 1em;
-  margin: 0;
-  opacity: 1;
-  outline: 0;
-  padding: 1.2em 2em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: background-color 500ms ease-in-out, color 500ms ease-in-out, opacity 600ms ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
-}
-
-.button-48:before {
-  animation: opacityFallbackOut .5s step-end forwards;
-  backface-visibility: hidden;
-  background-color: rgba(255, 255, 255, 0.15); /* Light overlay for subtle effect */
-  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
-  content: "";
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform: translateZ(0);
-  transition: clip-path .8s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .8s cubic-bezier(.165, 0.84, 0.44, 1);
-  width: 100%;
-  border-radius: 30px; 
-}
-
-.button-48:hover {
-  background-color: #f37735; 
-  color: #fff; 
-}
-
-.button-48:hover:before {
-  animation: opacityFallbackIn 0s step-start forwards;
-  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
-}
-
-.button-48:after {
-  background-color: #FFFFFF;
-}
-
-.button-48 span {
-  z-index: 1;
-  position: relative;
-}
-/* Button Transparent */
+/* Common Button Styles */
+.button-48,
 .button-48-transparent {
   appearance: none;
-  background-color: transparent;
-  border: 1px solid var(--primary-color);
   border-radius: 30px;
   box-sizing: border-box;
-  color: var(--primary-color);
   cursor: pointer;
   display: inline-block;
-  font-family: Clarkson, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
   letter-spacing: 0;
   line-height: 1em;
   margin: 0;
@@ -970,7 +904,6 @@ body.loaded #preloader {
   position: relative;
   text-align: center;
   text-decoration: none;
-  text-rendering: geometricprecision;
   text-transform: uppercase;
   transition: background-color 500ms ease-in-out, color 500ms ease-in-out, opacity 600ms ease-in-out;
   user-select: none;
@@ -980,6 +913,32 @@ body.loaded #preloader {
   white-space: nowrap;
 }
 
+.button-48 {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.button-48-transparent {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  font-family: Clarkson, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-rendering: geometricprecision;
+}
+
+.button-48:hover,
+.button-48-transparent:hover {
+  background-color: #f37735;
+  color: #fff;
+}
+
+.button-48-transparent:hover {
+  border-color: #f37735;
+}
+
+.button-48:before,
 .button-48-transparent:before {
   animation: opacityFallbackOut .5s step-end forwards;
   backface-visibility: hidden;
@@ -996,21 +955,18 @@ body.loaded #preloader {
   border-radius: 30px;
 }
 
-.button-48-transparent:hover {
-  background-color: #f37735;
-  color: #fff;
-  border-color: #f37735;
-}
-
+.button-48:hover:before,
 .button-48-transparent:hover:before {
   animation: opacityFallbackIn 0s step-start forwards;
   clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
 }
 
+.button-48:after,
 .button-48-transparent:after {
   background-color: #FFFFFF;
 }
 
+.button-48 span,
 .button-48-transparent span {
   z-index: 1;
   position: relative;
