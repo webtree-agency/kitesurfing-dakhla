@@ -906,7 +906,7 @@ body.loaded #preloader {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 200ms ease-in-out, color 200ms ease-in-out, opacity 300ms ease-in-out;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out, opacity 600ms ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -925,7 +925,7 @@ body.loaded #preloader {
   position: absolute;
   top: 0;
   transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  transition: clip-path .8s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .8s cubic-bezier(.165, 0.84, 0.44, 1);
   width: 100%;
   border-radius: 30px; 
 }
@@ -972,7 +972,7 @@ body.loaded #preloader {
   text-decoration: none;
   text-rendering: geometricprecision;
   text-transform: uppercase;
-  transition: background-color 200ms ease-in-out, color 200ms ease-in-out, opacity 300ms ease-in-out;
+  transition: background-color 500ms ease-in-out, color 500ms ease-in-out, opacity 600ms ease-in-out;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -991,7 +991,7 @@ body.loaded #preloader {
   position: absolute;
   top: 0;
   transform: translateZ(0);
-  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  transition: clip-path .8s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .8s cubic-bezier(.165, 0.84, 0.44, 1);
   width: 100%;
   border-radius: 30px;
 }
