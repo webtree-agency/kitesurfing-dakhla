@@ -5,6 +5,7 @@
 --------------------------------------------------------------*/
 :root {
   --primary-color: #ff6335;
+  --transparent-primary-color: #ff643550;
   --black-color: #1A2A36;
   --light-black-color: #4E4C49;
   --dark-color: #9B9B9B;
@@ -41,6 +42,10 @@
 
 html {
   box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--transparent-primary-color) !important;
 }
 
 ::-webkit-scrollbar {
