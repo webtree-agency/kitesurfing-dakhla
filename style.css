@@ -137,6 +137,10 @@ a:hover {
   padding-top: 8.125em;
   padding-bottom: 8.125em;
 }
+.padding-small-bottom {
+  padding-bottom: 8.125em !important;
+}
+
 
 .padding-medium {
   padding-top: 10em;
