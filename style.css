@@ -317,7 +317,7 @@ button.filter-button:hover {
 /* Parallax */
 .parallax-section {
   position: relative;
-  background-image: url('images/gallery/passion-banner.JPEG'); 
+  background-image: url('images/gallery/banner-team.webp'); 
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
