@@ -291,9 +291,6 @@ button.filter-button:hover {
   background: var(--primary-color);
 }
 
-/*----------------------------------------------*/
-/* 5 PAGES STYLE */
-/*----------------------------------------------*/
 
 /*--------------------------------------------------------------
 5.1 About page 
@@ -348,10 +345,10 @@ button.filter-button:hover {
   margin: 0;
 }
 
-/* Media query to disable parallax effect on mobile devices */
+/* disable parallax effect on mobile devices */
 @media (max-width: 768px) {
   .parallax-section {
-    background-attachment: scroll; /* Disable parallax effect */
+    background-attachment: scroll; 
     background-position: center;
   }
 }
