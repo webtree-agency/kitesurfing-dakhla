@@ -546,7 +546,7 @@ body.loaded #preloader {
 
 .button-48-transparent {
   background-color: transparent;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-color) !important;
   color: var(--primary-color);
   font-family: Clarkson, Helvetica, sans-serif;
   font-size: 14px;
@@ -596,4 +596,106 @@ body.loaded #preloader {
 .button-48-transparent span {
   z-index: 1;
   position: relative;
+}
+/* Booking form */
+
+
+input {
+  line-height: normal;
+}
+
+textarea {
+  overflow: auto;
+}
+
+form {
+  padding: 1rem;
+  margin: 50px 0;
+}
+
+.email {
+	float: right;
+	width: 45%;
+}
+
+input[type='text'], [type='email'], select, textarea {
+	background: none;
+  border: none;
+	border-bottom: solid 2px #474544;
+	color: #474544;
+  letter-spacing: 1px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+  text-transform: uppercase;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.submit {
+  display: flex;
+  justify-content: center; 
+}
+
+input[type='text']:focus, [type='email']:focus, textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+input[type='submit'] {
+  border: 1px solid var(--primary-color) !important;
+}
+
+.message {
+	float: none;
+}
+
+.name {
+	float: left;
+	width: 45%;
+}
+
+.subject {
+  width: 100%;
+}
+
+.telephone {
+  width: 100%;
+}
+
+textarea {
+	line-height: 150%;
+	height: 150px;
+	resize: none;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+	color: #474544;
+}
+
+:-moz-placeholder { 
+	color: #474544;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: #474544;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: #474544;
+}
+
+@media screen and (max-width: 420px) {
+  input[type='text'], [type='email'], select, textarea {
+    font-size: 0.875em;
+  }
 }
