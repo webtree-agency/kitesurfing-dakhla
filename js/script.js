@@ -2,6 +2,13 @@
 
     "use strict";
     $(document).ready(function() {
+      document.addEventListener('DOMContentLoaded', function () {
+        var video = document.querySelector('video');
+        video.play().catch(function(error) {
+          // Handle error here, like showing a fallback image or message
+          console.log("Autoplay failed due to: ", error);
+        });
+      });      
     window.addEventListener("load", () => {
       // Initialize Isotope on the container
       const $container = $('.isotope-container').isotope({
