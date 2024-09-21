@@ -699,3 +699,37 @@ textarea {
     font-size: 0.875em;
   }
 }
+/* Styling für das WhatsApp Popup */
+#whatsapp-popup {
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #25D366;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 15px;
+  z-index: 1000;
+}
+
+#whatsapp-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+#close-popup {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #whatsapp-popup {
+      padding: 10px 12px;
+  }
+  #whatsapp-icon {
+      width: 30px;
+      height: 30px;
+  }
+}
