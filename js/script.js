@@ -1,29 +1,9 @@
 (function ($) {
   "use strict";
 
-  const popup = document.getElementById('whatsapp-popup');
-  const closePopup = document.getElementById('close-popup');
-
-  if (closePopup) {
-      closePopup.addEventListener('click', function (event) {
-          event.stopPropagation();
-          popup.style.display = 'none';
-          localStorage.setItem('popupClosed', 'true');
-      });
-  }
-
-  if (popup) {
-    popup.addEventListener('click', function (event) {
-        if (event.target !== closePopup) {
-            window.open('https://wa.me/212628283870', '_blank');
-        }
+    document.getElementById("whatsapp-icon").addEventListener("click", function() {
+    window.open("https://wa.me/212628283870", "_blank");
     });
-}
-
-
-  if (localStorage.getItem('popupClosed') !== 'true' && popup) {
-      popup.style.display = 'block'; 
-  }
 
   document.addEventListener('DOMContentLoaded', function () {
       var video = document.querySelector('video');
