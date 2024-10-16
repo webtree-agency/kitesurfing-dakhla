@@ -739,4 +739,11 @@ textarea {
       font-size: 25px;
   }
 }
+/* Swiper */
+.swiper-pagination-bullet {
+  background: #555; 
+}
 
+.swiper-pagination-bullet-active {
+  background: var(--primary-color);
+}
