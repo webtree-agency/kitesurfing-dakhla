@@ -615,7 +615,7 @@ textarea {
 
 form {
   padding: 1rem;
-  margin: 50px 0;
+  margin: 50px 0 0;
 }
 
 .email {
@@ -727,7 +727,6 @@ textarea {
 
 #whatsapp-popup:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -749,4 +748,28 @@ textarea {
 }
 .text-warning {
   color: #FFD700; 
+}
+/* Style for the fine line */
+.fine-line {
+  border: 0;
+  height: 1px;
+  background: #aaa; 
+  width: 50%;
+  margin: 20px auto 10px;
+}
+
+.contact-via {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.whatsapp-link {
+  display: block;
+  text-align: center;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.whatsapp-link:hover {
+  transform: scale(1.1);
 }
