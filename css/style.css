@@ -283,15 +283,17 @@ a.nav-link:hover {
 /*----------------------------------------------*/
 
 button.filter-button {
-  border: 0;
+  border: 1px solid var(--primary-color); 
   background: transparent;
   text-transform: uppercase;
   transition: all 0.5s ease-in-out;
   border-radius: 20px;
+  padding: 6px;
 }
 
 button.filter-button.active,
 button.filter-button:hover {
+  border: 1px solid var(--primary-color); 
   color: var(--bs-light);
   background: var(--primary-color);
 }
