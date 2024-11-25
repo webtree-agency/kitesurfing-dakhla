@@ -5,6 +5,7 @@
 --------------------------------------------------------------*/
 :root {
   --primary-color: #ff6335;
+  --dark-orange: #821e00;
   --transparent-primary-color: #ff643550;
   --black-color: #1A2A36;
   --light-black-color: #4E4C49;
@@ -106,6 +107,10 @@ a:hover {
 /*----------------------------------------------*/
 .bg-light {
   background-color: var(--light-color) !important;
+}
+
+.bg-light-orange{ 
+  background-color: var(--transparent-primary-color) !important;
 }
 
 .bg-primary {
