@@ -294,6 +294,7 @@ button.filter-button {
   transition: all 0.5s ease-in-out;
   border-radius: 20px;
   padding: 6px;
+  color: black;
 }
 
 button.filter-button.active,
@@ -343,7 +344,7 @@ button.filter-button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white; 
+  color: var(--light-color); 
   text-align: center;
 }
 
@@ -517,7 +518,7 @@ button.filter-button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white; 
+  background-color: var(--light-color); 
   z-index: 9999;
 }
 
@@ -601,7 +602,7 @@ body.loaded #preloader {
 
 .button-48:after,
 .button-48-transparent:after {
-  background-color: #FFFFFF;
+  background-color: var(--light-color);
 }
 
 .button-48 span,
@@ -729,7 +730,7 @@ textarea {
 
 #whatsapp-icon {
   font-size: 30px;
-  color: white;
+  color: var(--light-color);
 }
 
 #whatsapp-popup:hover {
