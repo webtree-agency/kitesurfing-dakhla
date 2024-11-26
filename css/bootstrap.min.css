@@ -4396,7 +4396,7 @@ textarea.form-control-lg{
     --bs-alert-link-color:var(--bs-info-text-emphasis)
 }
 .alert-info-orange{
-    --bs-alert-color:var(--dark-orange);
+    --bs-alert-color:var(--dark-green);
     --bs-alert-bg:var(--transparent-primary-color);
     --bs-alert-border-color:var(--primary-color);
     --bs-alert-link-color:var(--bs-info-text-emphasis)
