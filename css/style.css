@@ -782,3 +782,14 @@ textarea {
 .whatsapp-link:hover {
   transform: scale(1.1);
 }
+
+.contact-social {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+  .contact-social {
+    display: block !important;
+    bottom: 0;
+  }
+}
