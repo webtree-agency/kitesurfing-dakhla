@@ -828,3 +828,16 @@ textarea {
 .card-hover:hover {
   transform: scale(1.05);
 }
+
+.img-overlay {
+  position: relative;
+  display: block; /* Entfernt unerwünschte Abstände */
+  width: 100%; /* Optional: Sicherstellen, dass das Bild responsiv ist */
+  height: auto;
+  filter: brightness(50%); /* Abdunkeln des Bildes */
+}
+
+.img-overlay:hover {
+  filter: brightness(70%); /* Optional: Aufhellung beim Hover */
+  transition: filter 0.3s ease-in-out; /* Sanfter Übergang beim Hover */
+}
