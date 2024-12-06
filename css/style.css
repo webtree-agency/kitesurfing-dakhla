@@ -793,3 +793,38 @@ textarea {
     bottom: 0;
   }
 }
+/* Cards */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  margin: 20px auto;
+}
+
+.card-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+}
