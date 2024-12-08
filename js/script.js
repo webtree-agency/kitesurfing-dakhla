@@ -9,6 +9,28 @@
         });
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const offcanvasElement = document.querySelector('#bdNavbar');
+        const offcanvasLinks = document.querySelectorAll('.offcanvas-body a[href^="#"]');
+    
+        offcanvasLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault(); // Verhindert das direkte Scrollen
+                const targetId = this.getAttribute('href'); // Holt den Ziel-Anchor
+                const targetElement = document.querySelector(targetId);
+    
+                if (targetElement) {
+                    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+                    offcanvas.hide(); 
+    
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth' }); 
+                    }, 300); 
+                }
+            });
+        });
+    });
+    
     // Initialize Swiper for testimonials
     const swiper = new Swiper('.testimonial-swiper', {
         slidesPerView: 1,
