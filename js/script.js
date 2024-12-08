@@ -15,8 +15,8 @@
     
         offcanvasLinks.forEach(link => {
             link.addEventListener('click', function (event) {
-                event.preventDefault(); // Verhindert das direkte Scrollen
-                const targetId = this.getAttribute('href'); // Holt den Ziel-Anchor
+                event.preventDefault(); 
+                const targetId = this.getAttribute('href'); 
                 const targetElement = document.querySelector(targetId);
     
                 if (targetElement) {
