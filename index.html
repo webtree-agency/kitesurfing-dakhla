@@ -118,9 +118,7 @@
                            <a class="button-48-transparent" role="button" href="./book"><span class="text">Book</span></a>
                         </li>
                      </ul>
-                     <!-- Kontakt und Social-Media -->
                      <div class="contact-social p-4 d-lg-flex flex-column align-items-end position-fixed">
-                        <!-- Kontaktinformationen -->
                         <div class="mb-3">
                            <div class="d-flex align-items-center mb-2">
                               <i class="fas fa-envelope text-primary me-2"></i>
@@ -153,6 +151,37 @@
                </div>
             </div>
          </nav>
+         <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const navLinks = document.querySelectorAll('.nav-link');
+                const offcanvas = document.getElementById('bdNavbar');
+                const offcanvasInstance = new bootstrap.Offcanvas(offcanvas);
+            
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        const target = link.getAttribute('href');
+            
+                        if (target.startsWith("#")) {
+                            e.preventDefault(); 
+                            const targetElement = document.querySelector(target);
+            
+                            if (targetElement) {
+                                if (offcanvas.classList.contains('show')) {
+                                    offcanvasInstance.hide();
+                                }
+            
+                                setTimeout(() => {
+                                    targetElement.scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "start",
+                                    });
+                                }, 300); 
+                            }
+                        }
+                    });
+                });
+            });               
+         </script>
       </header>
       <section>
          <div class="swiper-wrapper">
@@ -193,7 +222,6 @@
                </div>
             </div>
             <h3 class="fw-bold text-center mb-3">choose your package<span class="text-orange">:</span></h3>
-            
             <div class="row serviceshome g-1">
                <div class="col-md-6 serviceshome col-lg-6 col-xxl-3">
                   <div class="service-post position-relative bg-light-orange">
