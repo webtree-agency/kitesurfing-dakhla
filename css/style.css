@@ -810,3 +810,11 @@ textarea {
 #services {
   overflow-y: hidden;
 }
+
+.list-group-item span {
+  flex: 1;
+  text-align: center;
+}
+.list-group-item span:first-child {
+  text-align: left;
+}
