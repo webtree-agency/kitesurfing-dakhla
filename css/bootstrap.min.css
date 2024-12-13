@@ -9737,6 +9737,9 @@ textarea.form-control-lg{
     .w-lg-75{
         width:75%!important
     }
+    .w-lg-50 {
+        width: 50%!important
+    }
 }
 @media (min-width:1200px){
     .float-xl-start{
