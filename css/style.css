@@ -818,3 +818,13 @@ textarea {
 .list-group-item span:first-child {
   text-align: left;
 }
+
+.responsive-carousel {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .responsive-carousel {
+      width: 50%;
+  }
+}
