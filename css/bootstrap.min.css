@@ -974,6 +974,9 @@ progress{
     .col-md{
         flex:1 0 0%
     }
+    .w-md-100 { 
+        width:100%!important
+    }
     .row-cols-md-auto>*{
         flex:0 0 auto;
         width:auto
@@ -9730,6 +9733,9 @@ textarea.form-control-lg{
     }
     .text-lg-center{
         text-align:center!important
+    }
+    .w-lg-75{
+        width:75%!important
     }
 }
 @media (min-width:1200px){
