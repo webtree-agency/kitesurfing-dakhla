@@ -140,13 +140,24 @@ a:hover {
 /* - Section Padding
 --------------------------------------------------------------*/
 .padding-small {
-  padding-top: 8.125em;
-  padding-bottom: 8.125em;
-}
-.padding-small-bottom {
-  padding-bottom: 8.125em !important;
+  padding-top: 4em;
+  padding-bottom: 4em;
 }
 
+.padding-small-bottom {
+  padding-bottom: 4em !important;
+}
+
+@media (min-width: 768px) {
+  .padding-small {
+    padding-top: 8em;
+    padding-bottom: 8em;
+  }
+
+  .padding-small-bottom {
+    padding-bottom: 8em !important;
+  }
+}
 
 .padding-medium {
   padding-top: 10em;
@@ -837,5 +848,15 @@ textarea {
 @media (min-width: 992px) {
   .responsive-carousel {
       width: 50%;
+  }
+}
+
+.custom-height {
+  height: 84vh;
+}
+
+@media (min-width: 768px) {
+  .custom-height {
+    height: 90vh;
   }
 }
