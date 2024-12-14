@@ -860,3 +860,22 @@ textarea {
     height: 90vh;
   }
 }
+
+/* Trips */
+.trips-img {
+  max-width: 50%;; 
+  height: auto;
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .trips-img {
+    max-width: 90%; 
+  }
+}
+
+@media (max-width: 480px) {
+  .trips-img {
+    max-width: 95%; 
+  }
+}
