@@ -7,8 +7,13 @@
     </url>
     <url>
         <loc>https://kitesurfingdakhla.com/book.html</loc>
+        <lastmod>2025-01-05</lastmod>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kitesurfingdakhla.com/success.html</loc>
         <lastmod>2024-12-19</lastmod>
-        <priority>1.0</priority>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://kitesurfingdakhla.com/404.html</loc>
@@ -18,21 +23,21 @@
     <url>
         <loc>https://kitesurfingdakhla.com/all-inclusive.html</loc>
         <lastmod>2024-12-19</lastmod>
-        <priority>0.1</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://kitesurfingdakhla.com/kitesurf-lessons.html</loc>
         <lastmod>2024-12-19</lastmod>
-        <priority>0.1</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://kitesurfingdakhla.com/kitesurf-rental.html</loc>
         <lastmod>2024-12-19</lastmod>
-        <priority>0.1</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://kitesurfingdakhla.com/kitesurf-trips.html</loc>
         <lastmod>2024-12-19</lastmod>
-        <priority>0.1</priority>
+        <priority>0.7</priority>
     </url>
 </urlset>
