@@ -1,70 +1,74 @@
 (function ($) {
     "use strict";
 
-    // WhatsApp Icon Click Event
-    const whatsappIcon = document.getElementById("whatsapp-icon");
-    if (whatsappIcon) {
-        whatsappIcon.addEventListener("click", function() {
-            window.open("https://wa.me/212628283870", "_blank");
-        });
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+        // Lazy Load Video
+        const video = document.querySelector("video");
+        if (video) {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const source = video.querySelector("source");
+                        if (source && source.dataset.src) {
+                            source.src = source.dataset.src;
+                            video.load();
+                        }
+                        observer.disconnect();
+                    }
+                });
+            });
+            observer.observe(video);
 
-    document.addEventListener('DOMContentLoaded', function () {
+            // Attempt Autoplay
+            video.play().catch(error => console.log("Autoplay failed:", error));
+        }
+
+        // Offcanvas Navigation Scroll
         const offcanvasElement = document.querySelector('#bdNavbar');
         const offcanvasLinks = document.querySelectorAll('.offcanvas-body a[href^="#"]');
-    
-        offcanvasLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault(); 
-                const targetId = this.getAttribute('href'); 
-                const targetElement = document.querySelector(targetId);
-    
-                if (targetElement) {
-                    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-                    offcanvas.hide(); 
-    
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({ behavior: 'smooth' }); 
-                    }, 300); 
-                }
-            });
-        });
-    });
-    
-    // Initialize Swiper for testimonials
-    const swiper = new Swiper('.testimonial-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-            el: '.testimonial-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+        const navLinks = document.querySelectorAll('.nav-link');
+        if (offcanvasElement && offcanvasLinks.length) {
+            const offcanvasInstance = new bootstrap.Offcanvas(offcanvasElement);
 
-    // Play video on DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', function () {
-        const video = document.querySelector('video');
-        if (video) {
-            video.play().catch(error => {
-                console.log("Autoplay failed due to: ", error);
+            [...offcanvasLinks, ...navLinks].forEach(link => {
+                link.addEventListener('click', function (event) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith("#")) {
+                        event.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            if (offcanvasElement.classList.contains('show')) {
+                                offcanvasInstance.hide();
+                            }
+                            setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+                        }
+                    }
+                });
             });
         }
     });
 
-    // Isotope filtering on window load
-    $(window).on('load', function () {
-        const $container = $('.isotope-container').isotope({
-            itemSelector: '.item',
-            filter: '.kitesurf-lessons'
-        });
+    // WhatsApp Icon Click Event
+    const whatsappIcon = document.getElementById("whatsapp-icon");
+    if (whatsappIcon) {
+        whatsappIcon.addEventListener("click", () => window.open("https://wa.me/212628283870", "_blank"));
+    }
 
-        // Filter button click event
+    // Initialize Swiper
+    new Swiper('.testimonial-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: { el: '.testimonial-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+
+    // Isotope Filtering
+    $(window).on('load', function () {
+        const $container = $('.isotope-container').isotope({ itemSelector: '.item', filter: '.kitesurf-lessons' });
+
         $('.filter-button').on('click', function () {
-            const filterValue = $(this).attr('data-filter');
+            const filterValue = $(this).data('filter');
             $('.filter-button').removeClass('active');
             $(this).addClass('active');
             $container.isotope({ filter: filterValue });
@@ -75,13 +79,9 @@
             }
         });
 
-        // Trigger the active filter button on load
         $('.filter-button.active').trigger('click');
 
-        // Add loaded class to body after 300ms
-        setTimeout(() => {
-            document.body.classList.add('loaded');
-        }, 300);
+        setTimeout(() => document.body.classList.add('loaded'), 300);
     });
 
 })(jQuery);
