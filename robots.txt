@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://www.xxx.ch/sitemap.xml
+Sitemap: https://kitesurfingdakhla.com/sitemap.xml
