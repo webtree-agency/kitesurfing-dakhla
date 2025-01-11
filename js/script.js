@@ -2,6 +2,8 @@
     "use strict";
 
     document.addEventListener("DOMContentLoaded", () => {
+        const currentYear = new Date().getFullYear();
+        document.getElementById('current-year').textContent = currentYear;
         // Lazy Load Video
         const video = document.querySelector("video");
         if (video) {
