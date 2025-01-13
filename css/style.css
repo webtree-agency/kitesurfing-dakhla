@@ -855,11 +855,12 @@ textarea {
   height: 86vh;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) { 
   .custom-height {
-    height: 90vh;
+    height: 84vh !important;
   }
 }
+
 
 /* Trips */
 .trips-img {
