@@ -784,6 +784,111 @@
             </footer>
          </div>
       </section>
+      <!-- Cookie Consent Banner -->
+<div id="cookie-consent-banner" class="cookie-banner">
+   <div class="cookie-content">
+       <div class="cookie-text">
+           <h5>Cookie Policy</h5>
+           <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept All", you consent to our use of cookies. You can click "Decline" to refuse non-essential cookies.</p>
+       </div>
+       <div class="cookie-buttons">
+           <button id="cookie-accept" class="button-48">Accept All</button>
+           <button id="cookie-decline" class="button-48-transparent">Decline</button>
+       </div>
+   </div>
+</div>
+
+<!-- CSS for Cookie Banner -->
+<style>
+   .cookie-banner {
+       position: fixed;
+       bottom: -100%;
+       left: 0;
+       right: 0;
+       background-color: #fff;
+       box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+       z-index: 9999;
+       padding: 1rem;
+       transition: bottom 0.5s ease-in-out;
+   }
+   
+   .cookie-banner.show {
+       bottom: 0;
+   }
+   
+   .cookie-content {
+       max-width: 1200px;
+       margin: 0 auto;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+   
+   .cookie-text {
+       flex: 1;
+       margin-bottom: 1rem;
+       text-align: center;
+   }
+   
+   .cookie-text h5 {
+       color: var(--primary-color);
+       margin-bottom: 0.5rem;
+   }
+   
+   .cookie-text p {
+       margin-bottom: 0;
+       font-size: 0.9rem;
+   }
+   
+   .cookie-buttons {
+       display: flex;
+       gap: 10px;
+   }
+   
+   @media (min-width: 768px) {
+       .cookie-content {
+           flex-direction: row;
+           align-items: center;
+       }
+       
+       .cookie-text {
+           margin-bottom: 0;
+           margin-right: 1rem;
+           text-align: left;
+       }
+   }
+</style>
+
+<!-- JavaScript for Cookie Banner -->
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+       const cookieBanner = document.getElementById('cookie-consent-banner');
+       const acceptButton = document.getElementById('cookie-accept');
+       const declineButton = document.getElementById('cookie-decline');
+       
+       // Check if user has already made a choice
+       if (!localStorage.getItem('cookieConsent')) {
+           // Show the banner after a short delay
+           setTimeout(() => {
+               cookieBanner.classList.add('show');
+           }, 1000);
+       }
+       
+       // Accept cookies
+       acceptButton.addEventListener('click', function() {
+           localStorage.setItem('cookieConsent', 'accepted');
+           cookieBanner.classList.remove('show');
+           // Here you could initialize analytics scripts or other cookie-dependent code
+       });
+       
+       // Decline cookies
+       declineButton.addEventListener('click', function() {
+           localStorage.setItem('cookieConsent', 'declined');
+           cookieBanner.classList.remove('show');
+           // Here you could ensure no tracking cookies are set
+       });
+   });
+</script>
       <script src="js/jquery-1.11.0.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
       <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/lineWobble.js"></script>
