@@ -1,0 +1,23 @@
+# Lokale Entwicklungs-Umgebung. Production läuft via Dokploy (siehe dokploy.yml).
+# Start mit: docker compose up -d
+# Host-Port 5436: 5432 (churfirsten) und 5435 (katharinas) sind lokal belegt.
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: payload
+      POSTGRES_PASSWORD: payload
+      POSTGRES_DB: kitesurfing
+    ports:
+      - '5436:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U payload -d kitesurfing']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
