@@ -8,9 +8,9 @@ export const Testimonials: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'rating', 'updatedAt'],
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Kundenbewertungen für den Bewertungs-Slider. Erscheinen auf allen Seiten der Website im Abschnitt "What our customers say".',
+      'Customer reviews for the review slider. They appear on every page of the website in the "What our customers say" section.',
   },
   access: {
     read: publicRead,
@@ -20,14 +20,14 @@ export const Testimonials: CollectionConfig = {
   },
   fields: [
     { name: 'name', type: 'text', required: true, label: 'Name' },
-    { name: 'text', type: 'textarea', required: true, label: 'Bewertungstext' },
+    { name: 'text', type: 'textarea', required: true, label: 'Review text' },
     {
       name: 'rating',
       type: 'number',
       min: 1,
       max: 5,
       defaultValue: 5,
-      label: 'Sterne (1–5)',
+      label: 'Stars (1–5)',
     },
     // Sortierung: kleinere Zahl = weiter vorne. Im Admin ausgeblendet
     // (simplifyAdmin in payload.config.ts).

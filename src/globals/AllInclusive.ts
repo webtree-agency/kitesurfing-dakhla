@@ -4,15 +4,15 @@ import { authenticated, publicRead } from '@/lib/payload/access';
 import { ALL_INCLUSIVE_CONTENT as C } from '@/lib/content/all-inclusive';
 
 const HTML_HINT =
-  'Achtung: enthält HTML-Markup (z. B. <span class="orange-dot">…</span> oder <strong>…</strong>) — bitte nicht entfernen, nur den Text anpassen.';
+  'Contains HTML markup (e.g. <span class="orange-dot">…</span> or <strong>…</strong>) — please keep it, only change the text.';
 
 export const AllInclusive: GlobalConfig = {
   slug: 'all-inclusive',
-  label: 'All-Inclusive Paket',
+  label: 'All-Inclusive Package',
   admin: {
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Inhalte der Seite „7 Day All-inclusive Kitesurf Adventure": Texte, Zimmer-Bilder, Leistungen und Preistabelle.',
+      'Content of the "7 Day All-inclusive Kitesurf Adventure" page: texts, room images, what is included and the price table.',
   },
   access: { read: publicRead, update: authenticated },
   fields: [
@@ -20,34 +20,34 @@ export const AllInclusive: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Allgemein',
+          label: 'General',
           fields: [
             {
               name: 'hero',
               type: 'group',
-              label: 'Kopfbereich',
+              label: 'Header',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.hero.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.hero.heading,
                   admin: { description: HTML_HINT },
                 },
               ],
             },
-            { name: 'lead', type: 'textarea', label: 'Einleitungstext', defaultValue: C.lead },
+            { name: 'lead', type: 'textarea', label: 'Intro text', defaultValue: C.lead },
             {
               name: 'iconFeatures',
               type: 'array',
-              label: 'Icon-Merkmale',
-              labels: { singular: 'Merkmal', plural: 'Merkmale' },
+              label: 'Icon features',
+              labels: { singular: 'Feature', plural: 'Features' },
               fields: [
                 { name: 'iconClass', type: 'text' },
                 { name: 'label', type: 'text', required: true, label: 'Text' },
@@ -57,74 +57,74 @@ export const AllInclusive: GlobalConfig = {
           ],
         },
         {
-          label: 'Zimmer-Bilder',
+          label: 'Room images',
           fields: [
             {
               name: 'carouselImages',
               type: 'array',
-              label: 'Zimmer-Karussell',
-              labels: { singular: 'Bild', plural: 'Bilder' },
+              label: 'Room carousel',
+              labels: { singular: 'Image', plural: 'Images' },
               admin: {
                 description:
-                  'Eigene Zimmer-Fotos hochladen. Bleibt die Liste leer, zeigt die Website die Standard-Fotos.',
+                  'Upload your own room photos. If the list stays empty, the website shows the default photos.',
               },
               fields: [
-                { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Bild' },
+                { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Image' },
                 {
                   name: 'alt',
                   type: 'text',
-                  label: 'Bild-Beschreibung (Alt-Text)',
-                  admin: { description: 'Leer = Beschreibung aus der Mediathek.' },
+                  label: 'Image description (alt text)',
+                  admin: { description: 'Empty = description from the media library.' },
                 },
               ],
             },
           ],
         },
         {
-          label: 'Leistungen',
+          label: 'What is included',
           fields: [
             {
               name: 'includedHeading',
               type: 'text',
-              label: 'Überschrift „Inklusive"',
+              label: 'Heading "Included"',
               defaultValue: C.includedHeading,
             },
             {
               name: 'includedItems',
               type: 'array',
-              label: 'Inklusive Leistungen',
-              labels: { singular: 'Leistung', plural: 'Leistungen' },
+              label: 'Included items',
+              labels: { singular: 'Item', plural: 'Items' },
               fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
               defaultValue: C.includedItems.map((text) => ({ text })),
             },
             {
               name: 'notIncludedHeading',
               type: 'text',
-              label: 'Überschrift „Nicht inklusive"',
+              label: 'Heading "Not included"',
               defaultValue: C.notIncludedHeading,
             },
             {
               name: 'notIncludedItems',
               type: 'array',
-              label: 'Nicht inklusive Leistungen',
-              labels: { singular: 'Leistung', plural: 'Leistungen' },
+              label: 'Not included items',
+              labels: { singular: 'Item', plural: 'Items' },
               fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
               defaultValue: C.notIncludedItems.map((text) => ({ text })),
             },
           ],
         },
         {
-          label: 'Preise & CTA',
+          label: 'Prices & CTA',
           fields: [
             {
               name: 'priceTable',
               type: 'group',
-              label: 'Preistabelle',
+              label: 'Price table',
               fields: [
                 {
                   name: 'columnLabels',
                   type: 'group',
-                  label: 'Spaltenüberschriften',
+                  label: 'Column headings',
                   fields: [
                     {
                       type: 'row',
@@ -132,21 +132,21 @@ export const AllInclusive: GlobalConfig = {
                         {
                           name: 'roomType',
                           type: 'text',
-                          label: 'Spalte „Zimmertyp"',
+                          label: 'Column "Room type"',
                           defaultValue: C.priceTable.columnLabels.roomType,
                           admin: { width: '33%' },
                         },
                         {
                           name: 'people',
                           type: 'text',
-                          label: 'Spalte „Personen"',
+                          label: 'Column "People"',
                           defaultValue: C.priceTable.columnLabels.people,
                           admin: { width: '33%' },
                         },
                         {
                           name: 'price',
                           type: 'text',
-                          label: 'Spalte „Preis"',
+                          label: 'Column "Price"',
                           defaultValue: C.priceTable.columnLabels.price,
                           admin: { width: '33%' },
                         },
@@ -157,8 +157,8 @@ export const AllInclusive: GlobalConfig = {
                 {
                   name: 'rows',
                   type: 'array',
-                  label: 'Zeilen',
-                  labels: { singular: 'Zeile', plural: 'Zeilen' },
+                  label: 'Rows',
+                  labels: { singular: 'Row', plural: 'Rows' },
                   fields: [
                     {
                       type: 'row',
@@ -167,13 +167,13 @@ export const AllInclusive: GlobalConfig = {
                           name: 'roomType',
                           type: 'text',
                           required: true,
-                          label: 'Zimmertyp',
+                          label: 'Room type',
                           admin: { width: '40%' },
                         },
                         {
                           name: 'people',
                           type: 'text',
-                          label: 'Personen',
+                          label: 'People',
                           admin: { width: '30%' },
                         },
                         // Preis als Text, damit Formate wie "799€" möglich bleiben.
@@ -181,7 +181,7 @@ export const AllInclusive: GlobalConfig = {
                           name: 'price',
                           type: 'text',
                           required: true,
-                          label: 'Preis',
+                          label: 'Price',
                           admin: { width: '30%' },
                         },
                       ],
@@ -194,14 +194,14 @@ export const AllInclusive: GlobalConfig = {
             {
               name: 'alertText',
               type: 'textarea',
-              label: 'Hinweis-Box',
+              label: 'Notice box',
               defaultValue: C.alertText,
               admin: { description: HTML_HINT },
             },
             {
               name: 'cta',
               type: 'group',
-              label: 'Buchen-Button',
+              label: 'Booking button',
               fields: [
                 {
                   type: 'row',
@@ -209,14 +209,14 @@ export const AllInclusive: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.cta.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.cta.buttonHref,
                       admin: { width: '50%' },
                     },
@@ -227,24 +227,24 @@ export const AllInclusive: GlobalConfig = {
           ],
         },
         {
-          label: 'Kontakt-Abschnitt',
+          label: 'Contact section',
           fields: [
             {
               name: 'contactInfo',
               type: 'group',
-              label: 'Kontakt-Abschnitt („You are in good hands")',
+              label: 'Contact section ("You are in good hands")',
               fields: [
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.contactInfo.heading,
                 },
                 {
                   name: 'textLines',
                   type: 'array',
-                  label: 'Textzeilen',
-                  labels: { singular: 'Zeile', plural: 'Zeilen' },
+                  label: 'Text lines',
+                  labels: { singular: 'Line', plural: 'Lines' },
                   fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
                   defaultValue: C.contactInfo.textLines.map((text) => ({ text })),
                 },
@@ -254,14 +254,14 @@ export const AllInclusive: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.contactInfo.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.contactInfo.buttonHref,
                       admin: { width: '50%' },
                     },

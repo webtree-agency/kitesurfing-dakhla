@@ -5,15 +5,15 @@ import { STARTSEITE_CONTENT as C } from '@/lib/content/startseite';
 
 // Hinweis für Felder, deren Wert HTML-Markup enthält (orange Hervorhebung).
 const HTML_HINT =
-  'Achtung: enthält HTML-Markup (z. B. <span class="orange-dot">…</span>) für die orange Hervorhebung — bitte nicht entfernen, nur den Text anpassen.';
+  'Contains HTML markup (e.g. <span class="orange-dot">…</span>) for the orange highlight — please keep it, only change the text.';
 
 export const Startseite: GlobalConfig = {
   slug: 'startseite',
-  label: 'Startseite',
+  label: 'Home page',
   admin: {
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Alle Texte und Bilder der Startseite: Hero, Services-Karten, Über uns, Galerie sowie die Überschriften der Testimonial- und FAQ-Abschnitte.',
+      'All texts and images of the home page: hero, service cards, about us, gallery and the headings of the testimonial and FAQ sections.',
   },
   access: { read: publicRead, update: authenticated },
   fields: [
@@ -26,13 +26,13 @@ export const Startseite: GlobalConfig = {
             {
               name: 'hero',
               type: 'group',
-              label: 'Hero (Bild ganz oben)',
+              label: 'Hero (image at the very top)',
               fields: [
-                { name: 'title', type: 'text', label: 'Titel', defaultValue: C.hero.title },
+                { name: 'title', type: 'text', label: 'Title', defaultValue: C.hero.title },
                 {
                   name: 'subtitle',
                   type: 'text',
-                  label: 'Untertitel',
+                  label: 'Subtitle',
                   defaultValue: C.hero.subtitle,
                 },
                 {
@@ -41,14 +41,14 @@ export const Startseite: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.hero.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.hero.buttonHref,
                       admin: { width: '50%' },
                     },
@@ -64,32 +64,32 @@ export const Startseite: GlobalConfig = {
             {
               name: 'services',
               type: 'group',
-              label: 'Services-Abschnitt',
+              label: 'Services section',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.services.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.services.heading,
                   admin: { description: HTML_HINT },
                 },
                 {
                   name: 'intro',
                   type: 'textarea',
-                  label: 'Einleitungstext',
+                  label: 'Intro text',
                   defaultValue: C.services.intro,
                 },
                 {
                   name: 'iconFeatures',
                   type: 'array',
-                  label: 'Icon-Merkmale',
-                  labels: { singular: 'Merkmal', plural: 'Merkmale' },
+                  label: 'Icon features',
+                  labels: { singular: 'Feature', plural: 'Features' },
                   fields: [
                     { name: 'iconClass', type: 'text' },
                     { name: 'label', type: 'text', required: true, label: 'Text' },
@@ -99,32 +99,32 @@ export const Startseite: GlobalConfig = {
                 {
                   name: 'cardsHeading',
                   type: 'text',
-                  label: 'Überschrift über den Karten',
+                  label: 'Heading above the cards',
                   defaultValue: C.services.cardsHeading,
                   admin: { description: HTML_HINT },
                 },
                 {
                   name: 'cards',
                   type: 'array',
-                  label: 'Service-Karten',
-                  labels: { singular: 'Karte', plural: 'Karten' },
+                  label: 'Service cards',
+                  labels: { singular: 'Card', plural: 'Cards' },
                   fields: [
-                    { name: 'title', type: 'text', required: true, label: 'Titel' },
+                    { name: 'title', type: 'text', required: true, label: 'Title' },
                     {
                       name: 'description',
                       type: 'textarea',
-                      label: 'Beschreibung',
+                      label: 'Description',
                     },
                     {
                       name: 'image',
                       type: 'upload',
                       relationTo: 'media',
-                      label: 'Bild',
-                      admin: { description: 'Leer = Standard-Bild der Karte.' },
+                      label: 'Image',
+                      admin: { description: 'Empty = default image of the card.' },
                     },
-                    { name: 'imageAlt', type: 'text', label: 'Bild-Beschreibung (Alt-Text)' },
+                    { name: 'imageAlt', type: 'text', label: 'Image description (alt text)' },
                     { name: 'linkHref', type: 'text', label: 'Link' },
-                    { name: 'buttonLabel', type: 'text', label: 'Button-Text' },
+                    { name: 'buttonLabel', type: 'text', label: 'Button text' },
                   ],
                   // imageSrc bleibt bewusst statisch (Fallback im Loader,
                   // index-basiert) — im CMS wird nur ein optionaler Upload gepflegt.
@@ -141,62 +141,62 @@ export const Startseite: GlobalConfig = {
           ],
         },
         {
-          label: 'Über uns',
+          label: 'About us',
           fields: [
             {
               name: 'aboutUs',
               type: 'group',
-              label: 'Über-uns-Abschnitt',
+              label: 'About us section',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.aboutUs.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.aboutUs.heading,
                   admin: { description: HTML_HINT },
                 },
                 {
                   name: 'intro',
                   type: 'textarea',
-                  label: 'Einleitungstext',
+                  label: 'Intro text',
                   defaultValue: C.aboutUs.intro,
                 },
                 {
                   name: 'image',
                   type: 'upload',
                   relationTo: 'media',
-                  label: 'Foto',
-                  admin: { description: 'Leer = Standard-Foto (Team).' },
+                  label: 'Photo',
+                  admin: { description: 'Empty = default photo (team).' },
                 },
                 {
                   name: 'imageAlt',
                   type: 'text',
-                  label: 'Foto-Beschreibung (Alt-Text)',
+                  label: 'Photo description (alt text)',
                   defaultValue: C.aboutUs.imageAlt,
                 },
                 {
                   name: 'whyChooseHeading',
                   type: 'text',
-                  label: '„Warum wir"-Überschrift',
+                  label: '"Why us" heading',
                   defaultValue: C.aboutUs.whyChooseHeading,
                 },
                 {
                   name: 'whyChooseText',
                   type: 'textarea',
-                  label: '„Warum wir"-Text',
+                  label: '"Why us" text',
                   defaultValue: C.aboutUs.whyChooseText,
                 },
                 {
                   name: 'bullets',
                   type: 'array',
-                  label: 'Stichpunkte',
-                  labels: { singular: 'Stichpunkt', plural: 'Stichpunkte' },
+                  label: 'Bullet points',
+                  labels: { singular: 'Bullet point', plural: 'Bullet points' },
                   fields: [
                     { name: 'iconClass', type: 'text' },
                     {
@@ -206,7 +206,7 @@ export const Startseite: GlobalConfig = {
                       label: 'Text',
                       admin: {
                         description:
-                          'Enthält HTML (<strong>…</strong>) für den fett gedruckten Anfang — bitte beibehalten.',
+                          'Contains HTML (<strong>…</strong>) for the bold beginning — please keep it.',
                       },
                     },
                   ],
@@ -218,14 +218,14 @@ export const Startseite: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.aboutUs.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.aboutUs.buttonHref,
                       admin: { width: '50%' },
                     },
@@ -236,17 +236,17 @@ export const Startseite: GlobalConfig = {
           ],
         },
         {
-          label: 'Galerie',
+          label: 'Gallery',
           fields: [
             {
               name: 'parallax',
               type: 'group',
-              label: 'Parallax-Banner',
+              label: 'Parallax banner',
               fields: [
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.parallax.heading,
                   admin: { description: HTML_HINT },
                 },
@@ -255,39 +255,39 @@ export const Startseite: GlobalConfig = {
             {
               name: 'gallery',
               type: 'group',
-              label: 'Galerie',
+              label: 'Gallery',
               admin: {
                 description:
-                  'Eigene Galerie-Bilder hochladen. Bleiben die Listen leer, zeigt die Website die Standard-Galerie.',
+                  'Upload your own gallery images. If the lists stay empty, the website shows the default gallery.',
               },
               fields: [
                 {
                   name: 'desktopImages',
                   type: 'array',
-                  label: 'Galerie-Bilder (Desktop, 3×3-Raster)',
-                  labels: { singular: 'Bild', plural: 'Bilder' },
+                  label: 'Gallery images (desktop, 3×3 grid)',
+                  labels: { singular: 'Image', plural: 'Images' },
                   fields: [
-                    { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Bild' },
+                    { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Image' },
                     {
                       name: 'alt',
                       type: 'text',
-                      label: 'Bild-Beschreibung (Alt-Text)',
-                      admin: { description: 'Leer = Beschreibung aus der Mediathek.' },
+                      label: 'Image description (alt text)',
+                      admin: { description: 'Empty = description from the media library.' },
                     },
                   ],
                 },
                 {
                   name: 'mobileCarouselImages',
                   type: 'array',
-                  label: 'Galerie-Bilder (Mobil-Karussell)',
-                  labels: { singular: 'Bild', plural: 'Bilder' },
+                  label: 'Gallery images (mobile carousel)',
+                  labels: { singular: 'Image', plural: 'Images' },
                   fields: [
-                    { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Bild' },
+                    { name: 'image', type: 'upload', relationTo: 'media', required: true, label: 'Image' },
                     {
                       name: 'alt',
                       type: 'text',
-                      label: 'Bild-Beschreibung (Alt-Text)',
-                      admin: { description: 'Leer = Beschreibung aus der Mediathek.' },
+                      label: 'Image description (alt text)',
+                      admin: { description: 'Empty = description from the media library.' },
                     },
                   ],
                 },
@@ -296,19 +296,19 @@ export const Startseite: GlobalConfig = {
           ],
         },
         {
-          label: 'CTA & Abschnitts-Titel',
+          label: 'CTA & section titles',
           fields: [
             {
               name: 'contactInfo',
               type: 'group',
-              label: 'Kontakt-CTA („Ready for the adventure?")',
+              label: 'Contact CTA ("Ready for the adventure?")',
               fields: [
-                { name: 'heading', type: 'text', label: 'Titel', defaultValue: C.contactInfo.heading },
+                { name: 'heading', type: 'text', label: 'Title', defaultValue: C.contactInfo.heading },
                 {
                   name: 'textLines',
                   type: 'array',
-                  label: 'Textzeilen',
-                  labels: { singular: 'Zeile', plural: 'Zeilen' },
+                  label: 'Text lines',
+                  labels: { singular: 'Line', plural: 'Lines' },
                   fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
                   defaultValue: C.contactInfo.textLines.map((text) => ({ text })),
                 },
@@ -318,14 +318,14 @@ export const Startseite: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.contactInfo.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.contactInfo.buttonHref,
                       admin: { width: '50%' },
                     },
@@ -336,18 +336,18 @@ export const Startseite: GlobalConfig = {
             {
               name: 'testimonialSection',
               type: 'group',
-              label: 'Testimonial-Abschnitt (Überschriften)',
+              label: 'Testimonial section (headings)',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.testimonialSection.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.testimonialSection.heading,
                   admin: { description: HTML_HINT },
                 },
@@ -356,18 +356,18 @@ export const Startseite: GlobalConfig = {
             {
               name: 'faqSection',
               type: 'group',
-              label: 'FAQ-Abschnitt (Überschriften)',
+              label: 'FAQ section (headings)',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.faqSection.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.faqSection.heading,
                   admin: { description: HTML_HINT },
                 },

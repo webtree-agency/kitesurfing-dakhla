@@ -7,7 +7,7 @@ import { seoPlugin } from '@payloadcms/plugin-seo';
 import { s3Storage } from '@payloadcms/storage-s3';
 import { buildConfig } from 'payload';
 import type { CollectionConfig, GlobalConfig } from 'payload';
-import { de } from 'payload/i18n/de';
+import { en } from 'payload/i18n/en';
 import sharp from 'sharp';
 
 import { Testimonials } from './collections/Testimonials';
@@ -90,6 +90,32 @@ const dirname = path.dirname(filename);
 
 const hasS3 = Boolean(process.env.S3_BUCKET && process.env.S3_ACCESS_KEY_ID && process.env.S3_ENDPOINT);
 
+/**
+ * Erlaubte Origins für CORS + CSRF.
+ *
+ * Payload macht string-exaktes Origin-Matching gegen csrf[] beim JWT-Extract.
+ * Schon ein trailing slash oder www. statt Apex heisst: Cookie wird ignoriert
+ * → req.user = null → 403 im Admin (z. B. beim Media-Upload).
+ *
+ * Die Produktions-Domains stehen deshalb fest im Code und nicht nur in der
+ * env — eine fehlende oder vertippte Env-Variable darf das Admin nicht
+ * lahmlegen (Lehre aus wunderli-immobilien).
+ */
+function getAllowedOrigins(): string[] {
+  const stripSlash = (u: string) => u.replace(/\/+$/, '');
+  const fromEnv = [process.env.NEXT_PUBLIC_SERVER_URL, process.env.NEXT_PUBLIC_SITE_URL]
+    .filter((u): u is string => Boolean(u))
+    .map(stripSlash);
+  return Array.from(
+    new Set([
+      ...fromEnv,
+      'https://kitesurfingdakhla.com',
+      'https://www.kitesurfingdakhla.com',
+      'http://localhost:3000',
+    ]),
+  );
+}
+
 // Global-Slug → Frontend-Pfad (Live-Preview + Revalidation-Ziel).
 const GLOBAL_PATHS: Record<string, string> = {
   startseite: '/',
@@ -164,9 +190,11 @@ export default buildConfig({
 
   editor: lexicalEditor({}),
 
+  // Admin-UI auf Englisch: Der Kunde (Lahcen) spricht kein Deutsch.
+  // Code-Kommentare bleiben deutsch — die sind für uns.
   i18n: {
-    supportedLanguages: { de },
-    fallbackLanguage: 'de',
+    supportedLanguages: { en },
+    fallbackLanguage: 'en',
   },
 
   db: postgresAdapter({
@@ -260,8 +288,8 @@ export default buildConfig({
 
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
 
-  cors: [process.env.NEXT_PUBLIC_SITE_URL ?? '', 'http://localhost:3000'].filter(Boolean),
-  csrf: [process.env.NEXT_PUBLIC_SITE_URL ?? '', 'http://localhost:3000'].filter(Boolean),
+  cors: getAllowedOrigins(),
+  csrf: getAllowedOrigins(),
 
   // Angriffsfläche schliessen — Frontend nutzt ausschliesslich die Local API.
   graphQL: {

@@ -10,7 +10,10 @@ services:
       POSTGRES_PASSWORD: payload
       POSTGRES_DB: kitesurfing
     ports:
-      - '5436:5432'
+      # Nur an localhost binden — sonst hängt die Dev-DB am ganzen LAN/WLAN.
+      # In Production läuft Postgres als eigener Dokploy-Service ohne
+      # Port-Mapping, ausschliesslich über das interne Docker-Netz.
+      - '127.0.0.1:5436:5432'
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:

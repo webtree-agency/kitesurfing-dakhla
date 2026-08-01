@@ -4,7 +4,7 @@ import { authenticated, publicRead } from '@/lib/payload/access';
 import { KITESURF_LESSONS_CONTENT as C, type LessonVariant } from '@/lib/content/kitesurf-lessons';
 
 const HTML_HINT =
-  'Achtung: enthält HTML-Markup (z. B. <strong>…</strong>) — bitte nicht entfernen, nur den Text anpassen.';
+  'Contains HTML markup (e.g. <strong>…</strong>) — please keep it, only change the text.';
 
 // Semi-Private und Private haben identische Struktur → gemeinsamer Feld-Builder.
 function lessonVariantGroup(name: string, label: string, v: LessonVariant): Field {
@@ -13,21 +13,21 @@ function lessonVariantGroup(name: string, label: string, v: LessonVariant): Fiel
     type: 'group',
     label,
     fields: [
-      { name: 'tabLabel', type: 'text', label: 'Tab-Beschriftung', defaultValue: v.tabLabel },
-      { name: 'title', type: 'text', label: 'Titel', defaultValue: v.title },
+      { name: 'tabLabel', type: 'text', label: 'Tab label', defaultValue: v.tabLabel },
+      { name: 'title', type: 'text', label: 'Title', defaultValue: v.title },
       {
         name: 'description',
         type: 'array',
-        label: 'Beschreibung (Absätze)',
-        labels: { singular: 'Absatz', plural: 'Absätze' },
+        label: 'Description (paragraphs)',
+        labels: { singular: 'Paragraph', plural: 'Paragraphs' },
         fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
         defaultValue: v.description.map((text) => ({ text })),
       },
       {
         name: 'iconFeatures',
         type: 'array',
-        label: 'Icon-Merkmale',
-        labels: { singular: 'Merkmal', plural: 'Merkmale' },
+        label: 'Icon features',
+        labels: { singular: 'Feature', plural: 'Features' },
         fields: [
           { name: 'iconClass', type: 'text' },
           { name: 'label', type: 'text', required: true, label: 'Text' },
@@ -37,27 +37,27 @@ function lessonVariantGroup(name: string, label: string, v: LessonVariant): Fiel
       {
         name: 'priceRows',
         type: 'array',
-        label: 'Preistabelle',
-        labels: { singular: 'Zeile', plural: 'Zeilen' },
+        label: 'Price table',
+        labels: { singular: 'Row', plural: 'Rows' },
         fields: [
           {
             type: 'row',
             fields: [
-              { name: 'label', type: 'text', required: true, label: 'Bezeichnung', admin: { width: '30%' } },
+              { name: 'label', type: 'text', required: true, label: 'Label', admin: { width: '30%' } },
               // Preis als Text, damit Formate wie "40€" möglich bleiben.
-              { name: 'price', type: 'text', required: true, label: 'Preis', admin: { width: '20%' } },
+              { name: 'price', type: 'text', required: true, label: 'Price', admin: { width: '20%' } },
               {
                 name: 'note',
                 type: 'text',
-                label: 'Notiz',
-                admin: { width: '35%', description: 'z. B. "(Recommended for beginners)" — leer lassen wenn keine.' },
+                label: 'Note',
+                admin: { width: '35%', description: 'e.g. "(Recommended for beginners)" — leave empty if none.' },
               },
               {
                 name: 'highlighted',
                 type: 'checkbox',
-                label: 'Hervorheben',
+                label: 'Highlight',
                 defaultValue: false,
-                admin: { width: '15%', description: 'Zeile orange hinterlegen.' },
+                admin: { width: '15%', description: 'Give this row an orange background.' },
               },
             ],
           },
@@ -67,7 +67,7 @@ function lessonVariantGroup(name: string, label: string, v: LessonVariant): Fiel
       {
         name: 'alertText',
         type: 'textarea',
-        label: 'Hinweis-Box',
+        label: 'Notice box',
         defaultValue: v.alertText,
         admin: { description: HTML_HINT },
       },
@@ -77,14 +77,14 @@ function lessonVariantGroup(name: string, label: string, v: LessonVariant): Fiel
           {
             name: 'ctaButtonLabel',
             type: 'text',
-            label: 'Button-Text',
+            label: 'Button text',
             defaultValue: v.ctaButtonLabel,
             admin: { width: '50%' },
           },
           {
             name: 'ctaButtonHref',
             type: 'text',
-            label: 'Button-Link',
+            label: 'Button link',
             defaultValue: v.ctaButtonHref,
             admin: { width: '50%' },
           },
@@ -96,11 +96,11 @@ function lessonVariantGroup(name: string, label: string, v: LessonVariant): Fiel
 
 export const KitesurfLessons: GlobalConfig = {
   slug: 'kitesurf-lessons',
-  label: 'Kitesurf-Kurse',
+  label: 'Kitesurf Lessons',
   admin: {
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Inhalte der Seite „Kitesurf Lessons": Semi-Private- und Private-Kurse mit Preistabellen.',
+      'Content of the "Kitesurf Lessons" page: semi-private and private lessons with their price tables.',
   },
   access: { read: publicRead, update: authenticated },
   fields: [
@@ -108,27 +108,27 @@ export const KitesurfLessons: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Allgemein',
+          label: 'General',
           fields: [
             {
               name: 'hero',
               type: 'group',
-              label: 'Kopfbereich',
+              label: 'Header',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.hero.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.hero.heading,
                   admin: {
                     description:
-                      'Achtung: enthält HTML-Markup (<span class="orange-dot">…</span>) — bitte nicht entfernen.',
+                      'Contains HTML markup (<span class="orange-dot">…</span>) — please keep it, only change the text.',
                   },
                 },
               ],
@@ -137,26 +137,26 @@ export const KitesurfLessons: GlobalConfig = {
         },
         {
           label: 'Semi-Private',
-          fields: [lessonVariantGroup('semiPrivate', 'Semi-Private Kurse', C.semiPrivate)],
+          fields: [lessonVariantGroup('semiPrivate', 'Semi-Private lessons', C.semiPrivate)],
         },
         {
           label: 'Private',
-          fields: [lessonVariantGroup('private', 'Private Kurse', C.private)],
+          fields: [lessonVariantGroup('private', 'Private lessons', C.private)],
         },
         {
-          label: 'Kontakt-Abschnitt',
+          label: 'Contact section',
           fields: [
             {
               name: 'contactInfo',
               type: 'group',
-              label: 'Kontakt-Abschnitt („You are in good hands")',
+              label: 'Contact section ("You are in good hands")',
               fields: [
-                { name: 'heading', type: 'text', label: 'Titel', defaultValue: C.contactInfo.heading },
+                { name: 'heading', type: 'text', label: 'Title', defaultValue: C.contactInfo.heading },
                 {
                   name: 'textLines',
                   type: 'array',
-                  label: 'Textzeilen',
-                  labels: { singular: 'Zeile', plural: 'Zeilen' },
+                  label: 'Text lines',
+                  labels: { singular: 'Line', plural: 'Lines' },
                   fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
                   defaultValue: C.contactInfo.textLines.map((text) => ({ text })),
                 },
@@ -166,14 +166,14 @@ export const KitesurfLessons: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.contactInfo.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.contactInfo.buttonHref,
                       admin: { width: '50%' },
                     },

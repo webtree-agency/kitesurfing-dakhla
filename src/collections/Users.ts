@@ -31,7 +31,7 @@ export const Users: CollectionConfig = {
       defaultValue: 'editor',
       options: [
         { label: 'Admin (Webtree, full access)', value: 'admin' },
-        { label: 'Editor (Kunde)', value: 'editor' },
+        { label: 'Editor (client)', value: 'editor' },
       ],
       access: {
         update: ({ req }) => req.user?.role === 'admin',

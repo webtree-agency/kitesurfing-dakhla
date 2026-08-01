@@ -10,26 +10,26 @@ function rentalTabGroup(name: string, label: string, t: RentalTab): Field {
     type: 'group',
     label,
     fields: [
-      { name: 'tabLabel', type: 'text', label: 'Tab-Beschriftung', defaultValue: t.tabLabel },
-      { name: 'title', type: 'text', label: 'Titel', defaultValue: t.title },
+      { name: 'tabLabel', type: 'text', label: 'Tab label', defaultValue: t.tabLabel },
+      { name: 'title', type: 'text', label: 'Title', defaultValue: t.title },
       {
         name: 'priceRows',
         type: 'array',
-        label: 'Preistabelle',
-        labels: { singular: 'Zeile', plural: 'Zeilen' },
+        label: 'Price table',
+        labels: { singular: 'Row', plural: 'Rows' },
         fields: [
           {
             type: 'row',
             fields: [
-              { name: 'label', type: 'text', required: true, label: 'Bezeichnung', admin: { width: '40%' } },
+              { name: 'label', type: 'text', required: true, label: 'Label', admin: { width: '40%' } },
               // Preis als Text, damit Formate wie "+30€" möglich bleiben.
-              { name: 'price', type: 'text', required: true, label: 'Preis', admin: { width: '30%' } },
+              { name: 'price', type: 'text', required: true, label: 'Price', admin: { width: '30%' } },
               {
                 name: 'highlighted',
                 type: 'checkbox',
-                label: 'Hervorheben',
+                label: 'Highlight',
                 defaultValue: false,
-                admin: { width: '30%', description: 'Zeile orange hinterlegen (z. B. Extra Day).' },
+                admin: { width: '30%', description: 'Give the row an orange background (e.g. Extra Day).' },
               },
             ],
           },
@@ -42,11 +42,11 @@ function rentalTabGroup(name: string, label: string, t: RentalTab): Field {
 
 export const KitesurfRental: GlobalConfig = {
   slug: 'kitesurf-rental',
-  label: 'Material-Miete',
+  label: 'Equipment Rental',
   admin: {
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Inhalte der Seite „Kitesurf Rental": Preistabellen für Full Gear, Kite Only, Board Only und Versicherung.',
+      'Content of the "Kitesurf Rental" page: price tables for Full Gear, Kite Only, Board Only and Insurance.',
   },
   access: { read: publicRead, update: authenticated },
   fields: [
@@ -54,27 +54,27 @@ export const KitesurfRental: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Allgemein',
+          label: 'General',
           fields: [
             {
               name: 'hero',
               type: 'group',
-              label: 'Kopfbereich',
+              label: 'Header',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.hero.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.hero.heading,
                   admin: {
                     description:
-                      'Achtung: enthält HTML-Markup (<span class="orange-dot">…</span>) — bitte nicht entfernen.',
+                      'Contains HTML markup (<span class="orange-dot">…</span>) — please keep it, only change the text.',
                   },
                 },
               ],
@@ -82,14 +82,14 @@ export const KitesurfRental: GlobalConfig = {
             {
               name: 'howItWorks',
               type: 'group',
-              label: '„How it works"-Abschnitt',
+              label: '"How it works" section',
               fields: [
-                { name: 'heading', type: 'text', label: 'Titel', defaultValue: C.howItWorks.heading },
+                { name: 'heading', type: 'text', label: 'Title', defaultValue: C.howItWorks.heading },
                 {
                   name: 'paragraphs',
                   type: 'array',
-                  label: 'Absätze',
-                  labels: { singular: 'Absatz', plural: 'Absätze' },
+                  label: 'Paragraphs',
+                  labels: { singular: 'Paragraph', plural: 'Paragraphs' },
                   fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
                   defaultValue: C.howItWorks.paragraphs.map((text) => ({ text })),
                 },
@@ -98,8 +98,8 @@ export const KitesurfRental: GlobalConfig = {
             {
               name: 'iconFeatures',
               type: 'array',
-              label: 'Icon-Merkmale',
-              labels: { singular: 'Merkmal', plural: 'Merkmale' },
+              label: 'Icon features',
+              labels: { singular: 'Feature', plural: 'Features' },
               fields: [
                 { name: 'iconClass', type: 'text' },
                 { name: 'label', type: 'text', required: true, label: 'Text' },
@@ -109,7 +109,7 @@ export const KitesurfRental: GlobalConfig = {
             {
               name: 'cta',
               type: 'group',
-              label: 'Buchen-Button',
+              label: 'Booking button',
               fields: [
                 {
                   type: 'row',
@@ -117,14 +117,14 @@ export const KitesurfRental: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.cta.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.cta.buttonHref,
                       admin: { width: '50%' },
                     },
@@ -147,23 +147,23 @@ export const KitesurfRental: GlobalConfig = {
           fields: [rentalTabGroup('boardOnly', 'Board Only', C.boardOnly)],
         },
         {
-          label: 'Versicherung',
-          fields: [rentalTabGroup('insurance', 'Versicherung (Insurance)', C.insurance)],
+          label: 'Insurance',
+          fields: [rentalTabGroup('insurance', 'Insurance', C.insurance)],
         },
         {
-          label: 'Kontakt-Abschnitt',
+          label: 'Contact section',
           fields: [
             {
               name: 'contactInfo',
               type: 'group',
-              label: 'Kontakt-Abschnitt („You are in good hands")',
+              label: 'Contact section ("You are in good hands")',
               fields: [
-                { name: 'heading', type: 'text', label: 'Titel', defaultValue: C.contactInfo.heading },
+                { name: 'heading', type: 'text', label: 'Title', defaultValue: C.contactInfo.heading },
                 {
                   name: 'textLines',
                   type: 'array',
-                  label: 'Textzeilen',
-                  labels: { singular: 'Zeile', plural: 'Zeilen' },
+                  label: 'Text lines',
+                  labels: { singular: 'Line', plural: 'Lines' },
                   fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
                   defaultValue: C.contactInfo.textLines.map((text) => ({ text })),
                 },
@@ -173,14 +173,14 @@ export const KitesurfRental: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.contactInfo.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.contactInfo.buttonHref,
                       admin: { width: '50%' },
                     },

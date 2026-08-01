@@ -4,15 +4,15 @@ import { authenticated, publicRead } from '@/lib/payload/access';
 import { BUCHUNG_CONTENT as C } from '@/lib/content/buchung';
 
 const HTML_HINT =
-  'Achtung: enthält HTML-Markup (<span class="orange-dot">…</span>) — bitte nicht entfernen, nur den Text anpassen.';
+  'Contains HTML markup (<span class="orange-dot">…</span>) — please keep it, only change the text.';
 
 export const Buchung: GlobalConfig = {
   slug: 'buchung',
-  label: 'Buchungsseite',
+  label: 'Booking Page',
   admin: {
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Inhalte der Buchungsseite: Überschriften, Formular-Platzhalter, wählbare Services und die Danke-Seite nach dem Absenden.',
+      'Content of the booking page: headings, form placeholders, selectable services and the thank-you page shown after sending.',
   },
   access: { read: publicRead, update: authenticated },
   fields: [
@@ -20,23 +20,23 @@ export const Buchung: GlobalConfig = {
       type: 'tabs',
       tabs: [
         {
-          label: 'Formular',
+          label: 'Form',
           fields: [
             {
               name: 'hero',
               type: 'group',
-              label: 'Kopfbereich',
+              label: 'Header',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.hero.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.hero.heading,
                   admin: { description: HTML_HINT },
                 },
@@ -45,46 +45,46 @@ export const Buchung: GlobalConfig = {
             {
               name: 'form',
               type: 'group',
-              label: 'Buchungsformular',
+              label: 'Booking form',
               fields: [
                 {
                   name: 'action',
                   type: 'text',
-                  label: 'Formular-Ziel (Basin-URL)',
+                  label: 'Form target (Basin URL)',
                   defaultValue: C.form.action,
                   admin: {
                     description:
-                      'Technisch: URL, an die das Formular gesendet wird. Nur ändern, wenn Sie wissen, was Sie tun.',
+                      'Technical: the URL the form is sent to. Only change this if you know what you are doing.',
                   },
                 },
                 {
                   name: 'namePlaceholder',
                   type: 'text',
-                  label: 'Platzhalter „Name"',
+                  label: 'Placeholder "Name"',
                   defaultValue: C.form.namePlaceholder,
                 },
                 {
                   name: 'emailPlaceholder',
                   type: 'text',
-                  label: 'Platzhalter „E-Mail"',
+                  label: 'Placeholder "Email"',
                   defaultValue: C.form.emailPlaceholder,
                 },
                 {
                   name: 'telephonePlaceholder',
                   type: 'text',
-                  label: 'Platzhalter „Telefon"',
+                  label: 'Placeholder "Phone"',
                   defaultValue: C.form.telephonePlaceholder,
                 },
                 {
                   name: 'servicePlaceholder',
                   type: 'text',
-                  label: 'Platzhalter Service-Auswahl',
+                  label: 'Placeholder for the service selection',
                   defaultValue: C.form.servicePlaceholder,
                 },
                 {
                   name: 'serviceOptions',
                   type: 'array',
-                  label: 'Wählbare Services',
+                  label: 'Selectable services',
                   labels: { singular: 'Service', plural: 'Services' },
                   fields: [
                     {
@@ -94,14 +94,14 @@ export const Buchung: GlobalConfig = {
                           name: 'value',
                           type: 'text',
                           required: true,
-                          label: 'Wert (wird im E-Mail-Eingang angezeigt)',
+                          label: 'Value (shown in the email you receive)',
                           admin: { width: '50%' },
                         },
                         {
                           name: 'label',
                           type: 'text',
                           required: true,
-                          label: 'Anzeigetext',
+                          label: 'Displayed text',
                           admin: { width: '50%' },
                         },
                       ],
@@ -112,13 +112,13 @@ export const Buchung: GlobalConfig = {
                 {
                   name: 'messagePlaceholder',
                   type: 'text',
-                  label: 'Platzhalter „Nachricht"',
+                  label: 'Placeholder "Message"',
                   defaultValue: C.form.messagePlaceholder,
                 },
                 {
                   name: 'submitLabel',
                   type: 'text',
-                  label: 'Absenden-Button',
+                  label: 'Submit button',
                   defaultValue: C.form.submitLabel,
                 },
               ],
@@ -126,35 +126,35 @@ export const Buchung: GlobalConfig = {
             {
               name: 'contactViaText',
               type: 'text',
-              label: 'Text über dem WhatsApp-Icon',
+              label: 'Text above the WhatsApp icon',
               defaultValue: C.contactViaText,
             },
             {
               name: 'whatsappUrl',
               type: 'text',
-              label: 'WhatsApp-Link',
+              label: 'WhatsApp link',
               defaultValue: C.whatsappUrl,
             },
           ],
         },
         {
-          label: 'Danke-Seite',
+          label: 'Thank-you page',
           fields: [
             {
               name: 'success',
               type: 'group',
-              label: 'Danke-Seite (nach dem Absenden)',
+              label: 'Thank-you page (after sending)',
               fields: [
                 {
                   name: 'eyebrow',
                   type: 'text',
-                  label: 'Kleine Überschrift',
+                  label: 'Small heading',
                   defaultValue: C.success.eyebrow,
                 },
                 {
                   name: 'heading',
                   type: 'text',
-                  label: 'Titel',
+                  label: 'Title',
                   defaultValue: C.success.heading,
                   admin: { description: HTML_HINT },
                 },
@@ -164,14 +164,14 @@ export const Buchung: GlobalConfig = {
                     {
                       name: 'buttonLabel',
                       type: 'text',
-                      label: 'Button-Text',
+                      label: 'Button text',
                       defaultValue: C.success.buttonLabel,
                       admin: { width: '50%' },
                     },
                     {
                       name: 'buttonHref',
                       type: 'text',
-                      label: 'Button-Link',
+                      label: 'Button link',
                       defaultValue: C.success.buttonHref,
                       admin: { width: '50%' },
                     },

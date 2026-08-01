@@ -5,37 +5,37 @@ import { PRIVACY_POLICY_CONTENT as C } from '@/lib/content/privacy-policy';
 
 export const PrivacyPolicyPage: GlobalConfig = {
   slug: 'privacy-policy-page',
-  label: 'Datenschutz',
+  label: 'Privacy Policy',
   admin: {
-    group: 'Inhalte',
-    description: 'Inhalte der Datenschutz-Seite: Abschnitte der Privacy Policy und Kontaktblock.',
+    group: 'Content',
+    description: 'Content of the Privacy Policy page: policy sections and contact block.',
   },
   access: { read: publicRead, update: authenticated },
   fields: [
-    { name: 'eyebrow', type: 'text', label: 'Kleine Überschrift', defaultValue: C.eyebrow },
+    { name: 'eyebrow', type: 'text', label: 'Small heading', defaultValue: C.eyebrow },
     {
       name: 'heading',
       type: 'text',
-      label: 'Titel',
+      label: 'Title',
       defaultValue: C.heading,
       admin: {
         description:
-          'Achtung: enthält HTML-Markup (<span class="orange-dot">…</span>) — bitte nicht entfernen.',
+          'Contains HTML markup (<span class="orange-dot">…</span>) — please keep it, only change the text.',
       },
     },
-    { name: 'intro', type: 'textarea', label: 'Einleitungstext', defaultValue: C.intro },
+    { name: 'intro', type: 'textarea', label: 'Intro text', defaultValue: C.intro },
     {
       name: 'sections',
       type: 'array',
-      label: 'Abschnitte',
-      labels: { singular: 'Abschnitt', plural: 'Abschnitte' },
+      label: 'Sections',
+      labels: { singular: 'Section', plural: 'Sections' },
       fields: [
-        { name: 'heading', type: 'text', required: true, label: 'Überschrift' },
+        { name: 'heading', type: 'text', required: true, label: 'Heading' },
         {
           name: 'paragraphs',
           type: 'array',
-          label: 'Absätze',
-          labels: { singular: 'Absatz', plural: 'Absätze' },
+          label: 'Paragraphs',
+          labels: { singular: 'Paragraph', plural: 'Paragraphs' },
           fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
         },
       ],
@@ -47,7 +47,7 @@ export const PrivacyPolicyPage: GlobalConfig = {
     {
       name: 'contact',
       type: 'group',
-      label: 'Kontaktblock',
+      label: 'Contact block',
       fields: [
         {
           type: 'row',
@@ -55,14 +55,14 @@ export const PrivacyPolicyPage: GlobalConfig = {
             {
               name: 'companyLabel',
               type: 'text',
-              label: 'Beschriftung „Firma"',
+              label: '"Company" label',
               defaultValue: C.contact.companyLabel,
               admin: { width: '50%' },
             },
             {
               name: 'companyName',
               type: 'text',
-              label: 'Firmenname',
+              label: 'Company name',
               defaultValue: C.contact.companyName,
               admin: { width: '50%' },
             },
@@ -74,14 +74,14 @@ export const PrivacyPolicyPage: GlobalConfig = {
             {
               name: 'addressLabel',
               type: 'text',
-              label: 'Beschriftung „Adresse"',
+              label: '"Address" label',
               defaultValue: C.contact.addressLabel,
               admin: { width: '50%' },
             },
             {
               name: 'address',
               type: 'text',
-              label: 'Adresse',
+              label: 'Address',
               defaultValue: C.contact.address,
               admin: { width: '50%' },
             },
@@ -93,21 +93,21 @@ export const PrivacyPolicyPage: GlobalConfig = {
             {
               name: 'phoneLabel',
               type: 'text',
-              label: 'Beschriftung „Telefon"',
+              label: '"Phone" label',
               defaultValue: C.contact.phoneLabel,
               admin: { width: '33%' },
             },
             {
               name: 'phoneDisplay',
               type: 'text',
-              label: 'Telefonnummer (Anzeige)',
+              label: 'Phone number (displayed)',
               defaultValue: C.contact.phoneDisplay,
               admin: { width: '33%' },
             },
             {
               name: 'telHref',
               type: 'text',
-              label: 'Telefon-Link (tel:…)',
+              label: 'Phone link (tel:…)',
               defaultValue: C.contact.telHref,
               admin: { width: '33%' },
             },
@@ -119,14 +119,14 @@ export const PrivacyPolicyPage: GlobalConfig = {
             {
               name: 'emailLabel',
               type: 'text',
-              label: 'Beschriftung „E-Mail"',
+              label: '"Email" label',
               defaultValue: C.contact.emailLabel,
               admin: { width: '50%' },
             },
             {
               name: 'email',
               type: 'text',
-              label: 'E-Mail-Adresse',
+              label: 'Email address',
               defaultValue: C.contact.email,
               admin: { width: '50%' },
             },

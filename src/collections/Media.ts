@@ -4,12 +4,12 @@ import { authenticated, publicRead } from '@/lib/payload/access';
 
 export const Media: CollectionConfig = {
   slug: 'media',
-  labels: { singular: 'Medium', plural: 'Medien' },
+  labels: { singular: 'Media item', plural: 'Media' },
   admin: {
     useAsTitle: 'alt',
     defaultColumns: ['alt', 'filename', 'mimeType', 'updatedAt'],
-    group: 'Inhalte',
-    description: 'Bilder für Galerie, Zimmer und Seiten. Alt-Tags sind Pflicht.',
+    group: 'Content',
+    description: 'Images for the gallery, rooms and pages. Alt tags are required.',
   },
   access: {
     read: publicRead,
@@ -46,13 +46,13 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       admin: {
-        description: 'Pflicht. Kurz beschreiben, was auf dem Bild zu sehen ist (Englisch).',
+        description: 'Required. Briefly describe what the image shows.',
       },
     },
     {
       name: 'caption',
       type: 'text',
-      admin: { description: 'Optional: Bildunterschrift.' },
+      admin: { description: 'Optional: image caption.' },
     },
   ],
 };

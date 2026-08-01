@@ -8,9 +8,9 @@ export const FAQs: CollectionConfig = {
   admin: {
     useAsTitle: 'question',
     defaultColumns: ['question', 'updatedAt'],
-    group: 'Inhalte',
+    group: 'Content',
     description:
-      'Fragen und Antworten für das FAQ-Accordion auf der Startseite ("Frequently Asked Questions").',
+      'Questions and answers for the FAQ accordion on the home page ("Frequently Asked Questions").',
   },
   access: {
     read: publicRead,
@@ -23,17 +23,17 @@ export const FAQs: CollectionConfig = {
       name: 'question',
       type: 'text',
       required: true,
-      label: 'Frage',
+      label: 'Question',
       admin: {
         description:
-          'Achtung: Die Frage enthält HTML für die orange Hervorhebung, z. B. <span class="text-orange">…</span>. Dieses Markup bitte nicht entfernen — nur den Text dazwischen anpassen.',
+          'The question contains HTML markup for the orange highlight, e.g. <span class="text-orange">…</span> — please keep it, only change the text in between.',
       },
     },
     {
       name: 'paragraphs',
       type: 'array',
-      label: 'Antwort (Absätze)',
-      labels: { singular: 'Absatz', plural: 'Absätze' },
+      label: 'Answer (paragraphs)',
+      labels: { singular: 'Paragraph', plural: 'Paragraphs' },
       fields: [{ name: 'text', type: 'textarea', required: true, label: 'Text' }],
     },
     // Sortierung: kleinere Zahl = weiter oben. Im Admin ausgeblendet
