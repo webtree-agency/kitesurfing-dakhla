@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   keywords:
     'kitesurfing rental, Dakhla kitesurfing, kite rental, board rental, kitesurf gear rental, kite insurance, kitesurf Dakhla, kiteboarding rental',
   robots: 'follow, index',
+  alternates: { canonical: 'https://kitesurfingdakhla.com/kitesurf-rental' },
   openGraph: {
     title: 'Kitesurfing Dakhla | Kitesurf Rental | Kitesurfingdakhla.com',
     description:

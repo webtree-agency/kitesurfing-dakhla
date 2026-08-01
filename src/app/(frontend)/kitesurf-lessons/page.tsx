@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   keywords:
     'Kitesurfing lessons, Dakhla kitesurf, private kitesurf lessons, semi-private kitesurf lessons, kitesurf instructors, kiteboarding, Dakhla watersports',
   robots: 'index, follow',
+  alternates: { canonical: 'https://kitesurfingdakhla.com/kitesurf-lessons' },
   openGraph: {
     title: 'Kitesurfing Dakhla | Kitesurf Lessons | Kitesurfingdakhla.com',
     description:

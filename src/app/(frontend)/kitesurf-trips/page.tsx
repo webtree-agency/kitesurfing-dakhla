@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   keywords:
     'kitesurf trips, Dakhla kitesurfing, kiteboarding Dakhla, White Dune kitesurfing, Secret Spot kitesurf, Oyster Farm Dakhla, kitesurfing tours, kite trip Dakhla',
   robots: 'follow, index',
+  alternates: { canonical: 'https://kitesurfingdakhla.com/kitesurf-trips' },
   openGraph: {
     title: 'Kitesurfing Dakhla | Kitesurf Trips | Kitesurfingdakhla.com',
     description:

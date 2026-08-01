@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   keywords:
     'kitesurfing, watersports, Dakhla, book watersport, windsurfing, kitesurfing Dakhla, adventure sports, water sports booking, kiteboarding',
   robots: 'index, follow',
+  alternates: { canonical: 'https://kitesurfingdakhla.com/book' },
   openGraph: {
     title: 'Kitesurfing Dakhla | Book your Watersport | Kitesurfingdakhla.com',
     description:

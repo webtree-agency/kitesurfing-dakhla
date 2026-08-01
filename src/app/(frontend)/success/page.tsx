@@ -14,6 +14,7 @@ import { routeHref } from '@/lib/links';
 export const metadata: Metadata = {
   title: 'Kitesurfing Dakhla | Success Message | Kitesurfingdakhla.com',
   robots: 'follow',
+  alternates: { canonical: 'https://kitesurfingdakhla.com/success' },
   openGraph: {
     title: 'Kitesurfing Dakhla | Success Message | Kitesurfingdakhla.com',
     images: ['https://kitesurfingdakhla.com/images/logo/google-image.png'],

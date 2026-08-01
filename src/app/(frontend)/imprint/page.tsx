@@ -12,10 +12,10 @@ import { getSettingsContent } from '@/lib/content/settings-cms';
 export const metadata: Metadata = {
   robots: 'noindex, nofollow',
   title: 'Kitesurfing Dakhla | Imprint | Kitesurfingdakhla.com',
-  keywords: '404 error, page not found, kitesurfing dakhla',
+  keywords: 'imprint, legal notice, Kitesurfing Dakhla, contact',
   openGraph: {
     title: 'Kitesurfing Dakhla | Imprint | Kitesurfingdakhla.com',
-    url: 'https://kitesurfingdakhla.com/404',
+    url: 'https://kitesurfingdakhla.com/imprint',
     type: 'website',
   },
 };

@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   keywords:
     'kitesurfing, Dakhla, adventure, all-inclusive, kitesurf lessons, beachfront accommodation, kitesurfing package, IKO certified, beginners, advanced',
   robots: 'index, follow',
+  alternates: { canonical: 'https://kitesurfingdakhla.com/all-inclusive' },
   openGraph: {
     title:
       'Kitesurfing Dakhla | Explore Our All-inclusive Kitesurfing Adventure | Kitesurfingdakhla.com',
