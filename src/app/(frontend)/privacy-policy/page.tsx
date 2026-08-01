@@ -71,6 +71,18 @@ export default async function PrivacyPolicyPage() {
             <strong>{content.contact.emailLabel}</strong>{' '}
             <a href={`mailto:${content.contact.email}`}>{content.contact.email}</a>
           </p>
+          <p className="mt-4">
+            Website by{' '}
+            <a
+              href="https://www.webtree.ch"
+              target="_blank"
+              rel="noopener"
+              title="Webtree GmbH — Webagentur aus Schaffhausen"
+            >
+              Webtree GmbH
+            </a>
+            , web agency based in Schaffhausen, Switzerland.
+          </p>
         </div>
       </section>
       <SiteFooter settings={settings} variant="sub" />
