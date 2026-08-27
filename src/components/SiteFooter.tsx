@@ -107,7 +107,7 @@ export function SiteFooter({ settings, variant }: SiteFooterProps) {
                 className="text-decoration-underline"
                 target="_blank"
               >
-                Webtree
+                Webtree GmbH
               </a>
             </p>
           </div>
