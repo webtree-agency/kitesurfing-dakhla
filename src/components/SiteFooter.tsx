@@ -103,7 +103,7 @@ export function SiteFooter({ settings, variant }: SiteFooterProps) {
             <p className="">
               Website by{' '}
               <a
-                href="https://www.webtree.ch/website-erstellen"
+                href="https://www.webtree.ch/"
                 className="text-decoration-underline"
                 target="_blank"
               >
