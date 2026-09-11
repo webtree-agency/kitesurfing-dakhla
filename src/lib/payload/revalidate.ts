@@ -6,13 +6,10 @@ import type {
 } from 'payload';
 
 /**
- * Revalidiert die gesamte Site (alle Routen unter dem Root-Layout).
- *
- * WARUM: Der Production-Build erreicht die DB NICHT (kein DATABASE_URI-Build-
- * ARG) → alle Seiten werden zur Build-Zeit aus dem Static-Fallback generiert.
- * Ohne Revalidation würden CMS-Edits NIE auf der Live-Site erscheinen. Mit
- * diesem Hook wird der statische Cache nach jeder Änderung invalidiert → der
- * nächste Request re-rendert serverseitig (Runtime hat DB-Zugriff).
+ * Wirft den Router-Cache der Site weg, damit ein CMS-Edit sofort sichtbar ist.
+ * Die Seiten selbst rendern seit dem 11.09.2026 zur Laufzeit
+ * (`dynamic = 'force-dynamic'` im Frontend-Layout) — der Build hat keine DB
+ * und backte sonst den statischen Fallback ein.
  */
 function revalidateSite(): void {
   try {
