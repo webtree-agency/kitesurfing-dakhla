@@ -34,11 +34,11 @@
     "@payloadcms/ui": "3.86.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.10.0",
-    "next": "15.5.21",
+    "next": "15.5.25",
     "payload": "3.86.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "sharp": "0.35.1"
+    "sharp": "0.35.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
@@ -46,7 +46,7 @@
     "@types/react": "19.2.1",
     "@types/react-dom": "19.2.1",
     "eslint": "^9.18.0",
-    "eslint-config-next": "15.5.21",
+    "eslint-config-next": "15.5.25",
     "prettier": "^3.4.2",
     "tsx": "^4.23.1",
     "typescript": "^5.7.3"
