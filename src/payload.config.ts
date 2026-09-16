@@ -2,6 +2,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { postgresAdapter } from '@payloadcms/db-postgres';
+import { resendAdapter } from '@payloadcms/email-resend';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { s3Storage } from '@payloadcms/storage-s3';
@@ -129,6 +130,29 @@ const GLOBAL_PATHS: Record<string, string> = {
   settings: '/',
 };
 
+// Admin-Mails (Passwort-Reset, Einladungen) laufen über Payloads eigenen
+// Adapter, nicht über die Formular-Route. Ohne Adapter meldet «Passwort
+// vergessen» trotzdem Erfolg und schreibt die Mail nur ins Log.
+// MAIL_FROM steht als "Name <adresse>" oder als nackte Adresse in der Env.
+function adminMailSender(): { name: string; address: string } {
+  const raw = process.env.MAIL_FROM?.trim() ?? '';
+  const match = raw.match(/^(.*?)\s*<([^>]+)>$/);
+  if (match?.[2]) return { name: match[1]?.trim() || 'Kitesurfing Dakhla', address: match[2].trim() };
+  return { name: 'Kitesurfing Dakhla', address: raw || 'website@webtree.ch' };
+}
+
+const adminMail = process.env.RESEND_API_KEY
+  ? resendAdapter({
+      apiKey: process.env.RESEND_API_KEY,
+      defaultFromName: adminMailSender().name,
+      defaultFromAddress: adminMailSender().address,
+    })
+  : undefined;
+
+if (!adminMail && process.env.NODE_ENV === 'production') {
+  console.warn('[payload] RESEND_API_KEY fehlt — Passwort-Reset im Admin verschickt keine Mail.');
+}
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -196,6 +220,8 @@ export default buildConfig({
     supportedLanguages: { en },
     fallbackLanguage: 'en',
   },
+
+  email: adminMail,
 
   db: postgresAdapter({
     pool: { connectionString: process.env.DATABASE_URI ?? '' },
