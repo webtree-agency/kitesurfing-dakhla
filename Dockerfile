@@ -35,10 +35,10 @@ ENV NODE_ENV=production
 RUN pnpm payload generate:types
 
 # ─── Security-Gate ────────────────────────────────────────────────
-# Blockt verwundbare Next.js-Versionen (Server-Actions-RCE < 15.4.11) BEIM BUILD.
+# Blockt verwundbare Next.js-Versionen (Image-Optimization-RCE GHSA-2xp9-vwfh-vxw4, < 15.5.24 bzw. < 16.3.3) BEIM BUILD.
 # Failt der Build, schlaegt der Dokploy-Deploy fehl und die alte, funktionierende
 # Version bleibt live (0 Downtime).
-RUN node -e "let v;try{v=require('next/package.json').version}catch(e){console.log('security-gate: kein next, skip');process.exit(0)}var p=v.split('.').map(Number);if(p[0]<=14||(p[0]===15&&(p[1]<4||(p[1]===4&&p[2]<11)))){console.error('SECURITY-GATE: next '+v+' verwundbar (<15.4.11 Server-Actions-RCE). Build blockiert. Auf >=15.4.11 bumpen.');process.exit(1)}console.log('security-gate ok: next '+v)"
+RUN node -e "let v;try{v=require('next/package.json').version}catch(e){console.log('security-gate: kein next, skip');process.exit(0)}var p=v.split('.').map(Number);if(p[0]<=14||(p[0]===15&&(p[1]<5||(p[1]===5&&p[2]<24)))||(p[0]===16&&(p[1]<3||(p[1]===3&&(p[2]||0)<3)))){console.error('SECURITY-GATE: next '+v+' verwundbar. Erlaubt: >=15.5.24 (15er) bzw. >=16.3.3 (16er).');process.exit(1)}console.log('security-gate ok: next '+v)"
 
 RUN pnpm run build
 
