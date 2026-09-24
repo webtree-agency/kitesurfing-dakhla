@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload';
 
+import { passwordResetEmail } from '@/email/passwordReset';
 import { adminOnly } from '@/lib/payload/access';
 
 export const Users: CollectionConfig = {
@@ -10,6 +11,8 @@ export const Users: CollectionConfig = {
     cookies: { sameSite: 'Lax', secure: process.env.NODE_ENV === 'production' },
     maxLoginAttempts: 5,
     lockTime: 1000 * 60 * 10,
+    // Kein Firmenname in den Einstellungen: es gilt der Absendername des Mail-Adapters.
+    forgotPassword: passwordResetEmail({ companyName: async () => null }),
   },
   admin: {
     useAsTitle: 'email',
