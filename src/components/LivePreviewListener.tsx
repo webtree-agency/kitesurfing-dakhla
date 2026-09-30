@@ -7,17 +7,15 @@
 
 import { RefreshRouteOnSave } from '@payloadcms/live-preview-react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
+
+const subscribe = () => () => {};
+const previewOrigin = () => (window.self !== window.top ? window.location.origin : null);
+const noOriginOnServer = () => null;
 
 export function LivePreviewListener() {
   const router = useRouter();
-  const [origin, setOrigin] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.self !== window.top) {
-      setOrigin(window.location.origin);
-    }
-  }, []);
+  const origin = useSyncExternalStore(subscribe, previewOrigin, noOriginOnServer);
 
   if (!origin) return null;
   return <RefreshRouteOnSave refresh={() => router.refresh()} serverURL={origin} />;
