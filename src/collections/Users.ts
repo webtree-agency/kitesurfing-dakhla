@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload';
 
 import { passwordResetEmail } from '@/email/passwordReset';
 import { adminOnly } from '@/lib/payload/access';
+import { limitForgotPassword } from '@/lib/payload/limitForgotPassword';
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -13,6 +14,9 @@ export const Users: CollectionConfig = {
     lockTime: 1000 * 60 * 10,
     // Kein Firmenname in den Einstellungen: es gilt der Absendername des Mail-Adapters.
     forgotPassword: passwordResetEmail({ companyName: async () => null }),
+  },
+  hooks: {
+    beforeOperation: [limitForgotPassword],
   },
   admin: {
     useAsTitle: 'email',
