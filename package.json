@@ -14,6 +14,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\" \"*.{md,json,mjs}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css,md}\"",
     "type-check": "tsc --noEmit",
+    "test": "vitest run",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -22,7 +23,7 @@
     "seed": "cross-env NODE_OPTIONS=--no-deprecation tsx --env-file-if-exists=.env scripts/seed.ts",
     "ensure-admin": "cross-env NODE_OPTIONS=--no-deprecation tsx --env-file-if-exists=.env scripts/ensure-admin.ts",
     "create-editor": "cross-env NODE_OPTIONS=--no-deprecation tsx --env-file-if-exists=.env scripts/create-editor.ts",
-    "preflight": "pnpm type-check && pnpm lint && pnpm build"
+    "preflight": "pnpm type-check && pnpm lint && pnpm test && pnpm build"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.1",
@@ -50,7 +51,8 @@
     "eslint-config-next": "16.3.3",
     "prettier": "^3.4.2",
     "tsx": "^4.23.1",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.7"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
