@@ -162,6 +162,16 @@ export default buildConfig({
     // Light-Theme erzwingen: Default 'auto' liest prefers-color-scheme. Bei
     // Dark-Mode-Browser rendert Payload weissen Text → unlesbare Felder.
     theme: 'light',
+    components: {
+      // Marke des Kunden statt Payloads Logo, auf der Anmeldung und oben links.
+      graphics: {
+        Logo: {
+          path: '/admin/marke/Marke#Logo',
+          clientProps: { name: SITE_TITLE_SUFFIX, icon: '/images/logo/favicon.svg' },
+        },
+        Icon: { path: '/admin/marke/Marke#Icon', clientProps: { icon: '/images/logo/favicon.svg' } },
+      },
+    },
     // Live-Vorschau: Split-Screen im Admin (links bearbeiten, rechts die Seite).
     livePreview: {
       url: ({ collectionConfig, globalConfig }) => {
@@ -189,7 +199,8 @@ export default buildConfig({
     },
     meta: {
       titleSuffix: ` | ${SITE_TITLE_SUFFIX} Admin`,
-      icons: [{ type: 'image/x-icon', rel: 'icon', url: '/images/favicon.ico' }],
+      // Dasselbe Favicon wie die Website; /images/favicon.ico gibt es nicht.
+      icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/images/logo/favicon.svg' }],
     },
   },
 
