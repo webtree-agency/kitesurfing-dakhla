@@ -10,7 +10,6 @@ import { getSettingsContent } from '@/lib/content/settings-cms';
 // Metadaten 1:1 aus dem <head> von imprint.html — og:url zeigt dort (Original-
 // Copy-Paste) auf 404.html; Wert beibehalten, nur extensionslos.
 export const metadata: Metadata = {
-  robots: 'noindex, nofollow',
   title: 'Kitesurfing Dakhla | Imprint | Kitesurfingdakhla.com',
   keywords: 'imprint, legal notice, Kitesurfing Dakhla, contact',
   openGraph: {
@@ -65,6 +64,14 @@ export default async function ImprintPage() {
           </p>
           <p className="mb-1">
             <strong>{content.responsibleAddressLabel}</strong> {content.responsibleAddress}
+          </p>
+          <h6 className="text-primary mt-4">Credits</h6>
+          <p className="mb-1">
+            Website by{' '}
+            <a href="https://www.webtree.ch/" target="_blank" rel="noopener">
+              Webtree GmbH
+            </a>
+            , web agency based in Schaffhausen, Switzerland.
           </p>
           <div className="social-media mt-4">
             <h6 className="text-primary">{content.followUsHeading}</h6>

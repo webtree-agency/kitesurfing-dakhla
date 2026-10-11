@@ -74,7 +74,7 @@ export default async function PrivacyPolicyPage() {
           <p className="mt-4">
             Website by{' '}
             <a
-              href="https://www.webtree.ch"
+              href="https://www.webtree.ch/"
               target="_blank"
               rel="noopener"
               title="Webtree GmbH — Webagentur aus Schaffhausen"

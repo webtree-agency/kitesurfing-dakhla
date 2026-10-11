@@ -99,18 +99,22 @@ export function SiteFooter({ settings, variant }: SiteFooterProps) {
               <span id="current-year"></span> @ Kitesurfing Dakhla
             </p>
           </div>
-          <div className="col-md-6 text-md-end">
-            <p className="">
-              Website by{' '}
-              <a
-                href="https://www.webtree.ch/"
-                className="text-decoration-underline"
-                target="_blank"
-              >
-                Webtree GmbH
-              </a>
-            </p>
-          </div>
+          {/* Webtree-Link nur auf der Startseite (Kundenlink-Neuordnung 11.10.2026) */}
+          {variant === 'index' && (
+            <div className="col-md-6 text-md-end">
+              <p className="">
+                Website by{' '}
+                <a
+                  href="https://www.webtree.ch/"
+                  className="text-decoration-underline"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Webtree GmbH
+                </a>
+              </p>
+            </div>
+          )}
         </footer>
       </div>
     </section>
