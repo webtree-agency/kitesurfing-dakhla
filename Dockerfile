@@ -23,6 +23,10 @@ RUN corepack enable && corepack prepare pnpm@10.33.2 --activate
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Oeffentliche Adressen kommen als Build-Argument aus Dokploy, nicht mehr aus einer .env im Build-Kontext.
+ARG NEXT_PUBLIC_SERVER_URL
+ARG NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_SERVER_URL=$NEXT_PUBLIC_SERVER_URL NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
