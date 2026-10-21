@@ -29,6 +29,9 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Bewusst eng: nur die beiden Registrierungs-Routen. Die Middleware soll
-  // nicht bei jeder Seitenanfrage mitlaufen.
-  matcher: ['/admin/create-first-user', '/api/:collection/first-register'],
+  // nicht bei jeder Seitenanfrage mitlaufen. Payload vergleicht Routen ohne Gross- und Kleinschreibung, der Matcher nicht: darum jeder Buchstabe als Klasse.
+  matcher: [
+    '/admin/([cC][rR][eE][aA][tT][eE]-[fF][iI][rR][sS][tT]-[uU][sS][eE][rR])',
+    '/api/:collection/([fF][iI][rR][sS][tT]-[rR][eE][gG][iI][sS][tT][eE][rR])',
+  ],
 };
