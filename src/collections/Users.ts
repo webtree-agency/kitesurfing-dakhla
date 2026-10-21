@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
 import { passwordResetEmail } from '@/email/passwordReset';
-import { adminOnly } from '@/lib/payload/access';
+import { adminOnly, adminOrSelf } from '@/lib/payload/access';
 import { limitForgotPassword } from '@/lib/payload/limitForgotPassword';
 
 export const Users: CollectionConfig = {
@@ -26,7 +26,7 @@ export const Users: CollectionConfig = {
   access: {
     read: ({ req }) => Boolean(req.user),
     create: adminOnly,
-    update: ({ req, id }) => req.user?.role === 'admin' || req.user?.id === id,
+    update: adminOrSelf,
     delete: adminOnly,
   },
   fields: [
