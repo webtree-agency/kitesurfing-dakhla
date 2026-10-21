@@ -1,5 +1,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
+import { isAdminSetupRoute } from '@/lib/adminSetupRoute';
+
 /**
  * Erst-Registrierung des CMS dichtmachen.
  *
@@ -13,10 +15,6 @@ import { NextResponse, type NextRequest } from 'next/server';
  * Zum einmaligen Einrichten `ALLOW_ADMIN_SETUP=true` setzen, Konto anlegen,
  * Variable wieder entfernen und neu deployen.
  */
-function isAdminSetupRoute(path: string): boolean {
-  return path === '/admin/create-first-user' || /^\/api\/[^/]+\/first-register$/.test(path);
-}
-
 export function middleware(request: NextRequest) {
   if (isAdminSetupRoute(request.nextUrl.pathname) && process.env.ALLOW_ADMIN_SETUP !== 'true') {
     // 404 statt 403: verraet nicht einmal, dass es die Route gibt.
